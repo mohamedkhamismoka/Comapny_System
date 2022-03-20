@@ -1,0 +1,90 @@
+﻿
+
+@model ProjectVM
+@{
+    ViewData["Title"] = "create";
+
+ 
+}
+@section style{
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: red;
+        }
+
+        form {
+            width: 500px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0)
+        }
+
+        .y {
+            position: relative;
+            margin-left: 10px;
+            width: 310px
+        }
+    </style>
+}
+<center>
+    <h1>@SharedLocalizer["Create New Project"]</h1>
+</center>
+<form asp-area="Project" asp-controller="Project" asp-action="create" method="post">
+    <div class="form-group">
+        <label asp-for="name">@SharedLocalizer["name"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Name"]" asp-for="name">
+        <span asp-validation-for="name" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="location">@SharedLocalizer["location"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Location"]" asp-for="location">
+        <span asp-validation-for="location" class="text-danger font-weight-bold"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Dnum">@SharedLocalizer["Department"]</label><br />
+        <select asp-for="Dnum" class="form-control" asp-items="(SelectList)ViewBag.departmentlist">
+            <option>Choose Department</option>
+        </select><br />
+        <span asp-validation-for="Dnum" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group" style="margin-top:-25px">
+        <label asp-for="Startdate">@SharedLocalizer["Start Date"]</label><br />
+        <input type="date" class="form-control"  asp-for="Startdate" style="margin-bottom:-20px">
+        <br />
+        <span asp-validation-for="Startdate" class="text-danger font-weight-bold" style="margin-bottom:13px"></span>
+    </div>
+
+    <div class="form-group" style="margin-top:-9px;margin-bottom:-10px">
+        <label asp-for="Finishdate">@SharedLocalizer["Finish Date"]</label><br />
+        <input type="date" class="form-control"  asp-for="Finishdate" style="margin-bottom:-20px">
+        <br />
+        <span asp-validation-for="Finishdate" class="text-danger font-weight-bold" style="margin-bottom:10px"></span>
+    </div>
+    <div class="text-danger font-weight-bold" style="margin-bottom:15px">@ViewBag.valid</div>
+
+    <center>
+        <button type="submit" class="btn btn-primary">@SharedLocalizer["Create"]</button>
+
+    </center>
+</form>
+@section script{
+    <script src="~/plugins/jquery/jquery.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#datepicker2").datepicker();
+        });
+    </script>
+}
+
+

@@ -1,0 +1,13 @@
+﻿
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    color: red;
+}
+
+form,.forma {
+    width: 500px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0)
+}

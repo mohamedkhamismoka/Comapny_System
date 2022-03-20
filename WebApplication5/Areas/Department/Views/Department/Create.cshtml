@@ -1,0 +1,52 @@
+﻿@model DeptVM
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@SharedLocalizer["Create"]</title>
+    @section style{
+        <style>
+            h1 {
+                text-align: center;
+                margin-top: 30px;
+                color: red;
+            }
+
+            form {
+                width: 500px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%,0)
+            }
+        </style>
+    }
+</head>
+<body>
+
+    <div style="display:block;margin-left:auto;">
+        <center>
+            <h1 style="margin-top:20px;">@SharedLocalizer["Add Department"]</h1>
+        </center>
+        <form class="forma" asp-area="Department" asp-controller="Department" asp-action="Create" >
+
+          
+            <label asp-for="name" style="text-align:center">@SharedLocalizer["Name"]</label>
+            <input type="text" class="form-control" placeholder=@SharedLocalizer["Enter Name"] id="Name" asp-for="name">
+            <span class="text-danger font-weight-bold" asp-validation-for="name"></span>
+
+            <center>
+                <input type="submit" class="btn btn-primary" value="@SharedLocalizer["Create"]" style="margin-top:10px">
+
+            </center>
+        </form>
+
+
+    </div>
+    @section script{
+        <script src="~/plugins/jquery/jquery.js"></script>
+        <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    }
+</body>
+</html>

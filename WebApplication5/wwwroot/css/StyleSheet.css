@@ -1,0 +1,28 @@
+﻿.preloader{
+    display:none;
+}
+ .y{
+margin-top:3px;
+position:relative;
+margin-left:10px;
+width:310px;
+
+ }
+ .c{
+     color:white
+ }
+ .z{
+     background-color:transparent;
+         border:1px solid darkgray;
+ }
+.v {
+    background-color: transparent;
+    outline-offset: -2px;
+    -webkit-appearance: none;
+border:1px solid gray;
+outline:none
+}
+  
+.b {
+    border-radius: 10px;
+}

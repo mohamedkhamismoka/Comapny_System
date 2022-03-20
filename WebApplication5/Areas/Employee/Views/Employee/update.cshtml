@@ -1,0 +1,127 @@
+﻿
+@model EmpVM
+@{
+    ViewData["Title"] = "update";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+    var path = "~/files/images/" + Model.imgname;
+    var cvpath = "~/files/docs/" + Model.cvname;
+}
+@section style{
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: red;
+        }
+
+        form {
+            width: 500px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0)
+        }
+
+        .y {
+            position: relative;
+            margin-left: 10px;
+            width: 310px
+        }
+        .mm {
+            display: none;
+        }
+
+    </style>
+}
+<center>
+    <h1>@SharedLocalizer["update Employee"]</h1>
+</center>
+<form asp-area="Employee" asp-controller="Employee" asp-action="update" enctype="multipart/form-data">
+    <input type="hidden" asp-for="cvname" name="cv" value="@Model.cvname" />
+    <input type="hidden" asp-for="imgname" value="@Model.imgname" name="img" />
+       
+    <div class="form-group">
+        <label asp-for="name">@SharedLocalizer["Name"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Name"]" asp-for="name">
+        <span asp-validation-for="name" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="salary">@SharedLocalizer["Salary"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Salary"]" asp-for="salary">
+        <span asp-validation-for="salary" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Hiredate">@SharedLocalizer["Hiredate"]</label>
+        <input type="Date" class="form-control" id="name" placeholder="@SharedLocalizer["Enter HireDate"]" asp-for="Hiredate">
+        <span asp-validation-for="Hiredate" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="address">@SharedLocalizer["address"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Adress"]" asp-for="address">
+        <span asp-validation-for="address" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="departmentid">@SharedLocalizer["department"]</label><br />
+        <select asp-for="departmentid" class="form-control" asp-items="(SelectList)ViewBag.departmentlist">
+            <option>Choose Department</option>
+        </select><br />
+        <span asp-validation-for="departmentid" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="phone">@SharedLocalizer["phone"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Phone"]" asp-for="phone">
+        <span asp-validation-for="phone" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label>@SharedLocalizer["photo"]</label>
+        <img src="~/files/images/@Model.imgname" width="120" height="80" style="margin-left:10px;" />
+
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+        <label>@SharedLocalizer["CV"]</label>
+        <a href="~/files/docs/@Model.cvname" download="download" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
+
+    </div>
+
+    <div class="form-group">
+        <label asp-for="img">@SharedLocalizer["Change photo"]</label>
+        <input type="file" class="form-control" id="name" asp-for="img">
+        <span asp-validation-for="img" class="text-danger font-weight-bold"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="cv">@SharedLocalizer["Change CV"]</label>
+        <input type="file" class="form-control" id="name" asp-for="cv">
+        <span asp-validation-for="cv" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="demo-checkbox">
+        <input type="checkbox" asp-for="isActive" checked="">
+        <label asp-for="isActive">@SharedLocalizer["IsActive"]</label>
+        <span asp-validation-for="isActive" class="text-danger"></span>
+    </div>
+
+    <center>
+        <button class="btn btn-success" asp-area="Employee" asp-controller="Employee" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
+        <button type="submit" class="btn btn-primary">@SharedLocalizer["Update"]</button>
+        <button class="btn btn-danger" asp-area="Employee" asp-controller="Employee" asp-action="Delete" asp-route-id="@Model.id">@SharedLocalizer["Delete"]</button>
+
+
+
+    </center>
+</form>
+@section script{
+    <script src="~/plugins/jquery/jquery.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+}
+
+

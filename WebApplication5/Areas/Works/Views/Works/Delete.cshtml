@@ -1,0 +1,93 @@
+﻿@model Works_ForVM
+
+@{
+    ViewData["Title"] = "Delete";
+
+    var Culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+
+<html>
+
+
+<head>
+    <style>
+        th {
+            text-align: center;
+            color: black
+        }
+
+        #tab {
+            position: absolute;
+            width: 1000px;
+            left: 50%;
+            transform: translate(-50%,0);
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 0px
+        }
+    </style>
+    @section styling{
+        @if (Culture == "ar-EG")
+        {
+            <link href="~/css/Floating.css" rel="stylesheet" />
+        }
+        else
+        {
+            <style>
+                input, label, select {
+                    float: left;
+                }
+            </style>
+        }
+    }
+
+</head>
+<body>
+    <center>
+        <h1 style="text-align:center;color:red;margin-top:30px;margin-bottom:20px">@SharedLocalizer["Delete"]</h1>
+
+        <form style="display:inline-block;margin-left:10px" asp-controller="Works" asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Project_id" readonly />
+            <input type="hidden" asp-for="Employee_id" readonly />
+            <div class="form-group">
+                <label > @SharedLocalizer["Project"]</label><br />
+
+                <input type="text" class="form-control" asp-for="Project.name" disabled/><br />
+
+                <span asp-validation-for="Project_id"  class="text-danger font-weight-bold"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee_id" > @SharedLocalizer["Employee"]</label>
+                <input type="Text" class="form-control" asp-for="Employee.name" disabled>
+                <span asp-validation-for="Employee_id" class="text-danger font-weight-bold"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="hours" >@SharedLocalizer["Hours"] </label>
+                <input type="Text" class="form-control" id="name"  asp-for="hours" readonly><br />
+                <span asp-validation-for="hours"  class="text-danger font-weight-bold"></span>
+            </div>
+
+            <center>
+                <button type="submit"   style="margin-top:8px" class="btn btn-success">@SharedLocalizer["Delete"]</button>
+            </center>
+        </form>
+
+    </center>
+
+
+    @section script{
+        <script src="~/plugins/jquery/jquery.js"></script>
+        <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
+
+
+    }
+</body>
+</html>
+
+
+

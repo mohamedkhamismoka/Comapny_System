@@ -1,0 +1,38 @@
+﻿.forma {
+    margin-left: 280px
+}
+.dd{
+    display:grid;
+    grid-template-columns:auto auto auto;
+    justify-content:center;
+    column-gap:10px;
+
+}
+@media screen and (max-width: 990px) {
+    .forma {
+        margin-left: 0px;
+        display: block;
+        margin-left: auto
+    }
+
+        .forma input[type="submit"] {
+            margin-left: -130px;
+        }
+       
+   .dd .x{
+       width:120px;
+       height:40px;
+       margin-left:-220px;
+   }
+    .dd .y ,.dd .z{
+        width: 70px;
+        height:40px;
+    }
+    .dd .y {
+        margin-left: -30px;
+    }
+    .dd .z{
+        margin-left:-100px;
+    }
+}
+

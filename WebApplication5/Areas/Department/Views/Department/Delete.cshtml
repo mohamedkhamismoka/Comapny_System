@@ -1,0 +1,92 @@
+﻿@model DeptVM
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    @section style{
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+            h1 {
+                text-align: center;
+                margin-top: 30px;
+                color: red;
+            }
+
+            form {
+                width: 500px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%,0)
+            }
+        </style>
+    }
+</head>
+<body>
+    <center>
+        <h1 style="color:red">@SharedLocalizer["Delete Department"]</h1>
+        <h6>@ViewBag.x</h6>
+    </center>
+
+    <form class="forma" asp-area="Department" asp-controller="Department" asp-action="Delete" method="post">
+
+        <div class="form-group">
+            <label asp-for="name">@SharedLocalizer["Name"]:</label>
+            <input type="text" class="form-control" placeholder=@SharedLocalizer["Enter Name"] id="Name" asp-for="name" readonly>
+            <span class="text-danger" asp-validation-for="name"></span>
+        </div>
+        <center>
+            <button class="btn btn-success" asp-area="Department" asp-controller="Department" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
+
+            <button type="submit" class="btn btn-danger" style="display:none;" id="do">@SharedLocalizer["Delete"]</button>
+            <!-- Button to Open the Modal -->
+
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+              @SharedLocalizer["Delete"]
+            </button>
+        </center>
+    </form>
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:9999">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                    <img src="~/images/download.png"  height="50"/>
+                    @SharedLocalizer["Warning"]</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   @SharedLocalizer["Are you sure you want to Delete Department?"]
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-outline-danger" name="in_confirm_insert" id="delete-button">@SharedLocalizer["Delete"]</button>
+                    <button data-dismiss="modal" class="btn btn-outline-success" name="in_confirm_insert" id="cancel-delete-button">@SharedLocalizer["Cancel"]</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @section script{
+        <script src="~/plugins/jquery/jquery.js"></script>
+        <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#MyModal").modal();
+          
+                $("#exampleModal").on("click", "#delete-button", function () {
+                    $("#do").click();
+                });
+
+      
+            });
+
+        </script>
+    }
+</body>
+</html>

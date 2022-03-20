@@ -1,0 +1,132 @@
+﻿@inject WebApplication5.BL.interfaces.IEmployee employee
+@model IEnumerable<WebApplication5.BL.VM.DeptVM>
+
+@{
+    ViewBag.title = "Department Card";
+
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/Tables.css" rel="stylesheet" />
+    @section styling{
+
+        <link rel="stylesheet" href="~/plugins/datatables-bs4/css/dataTables.bootstrap4.css" />
+        <link rel="stylesheet" href="~/plugins/datatables-responsive/css/responsive.bootstrap4.css" />
+        <link rel="stylesheet" href="~/plugins/datatables-buttons/css/buttons.bootstrap4.css" />
+
+        <link rel="stylesheet" href="~/bootstrap-select/css/bootstrap-select.css" />
+        <link href="~/css/upgrading.css" rel="stylesheet" />
+
+        <style>
+            .dataTables_length {
+                margin-right: 217px;
+            }
+        </style>
+
+
+    }
+</head>
+<body>
+    <div style="display:block;margin-left:auto">
+        <center>
+            <div class="container-fluid" style="position:absolute;width:800px;left:50%;transform:translate(-50%,0)">
+                <div class="row clearfix">
+                    <center>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="width:800px;">
+                            <div class="card">
+                                <div class="header">
+                                    <center>
+                                        <h1 style="text-align:center;color:red;margin-top:40px;margin-bottom:15px">@SharedLocalizer["Departments"]</h1>
+
+                                        <a asp-area="Department" asp-controller="Department" asp-action="Create" class="btn btn-primary" style="margin-top:5px;margin-bottom:5px;">+ @SharedLocalizer["Add New Department"]</a>
+                                    </center>
+                                </div>
+                                <div class="body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-striped text-center js-basic-example dataTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>@SharedLocalizer["ID"]</th>
+                                                    <th> @SharedLocalizer["Name"]</th>
+                                                    <th>@SharedLocalizer["Employees Count"]</th>
+                                                    <th>@SharedLocalizer["Update"]</th>
+                                                    <th>@SharedLocalizer["Delete"]</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>@item.id</td>
+                                                        <td>@item.name</td>
+                                                        <td>@employee.get(a => a.departmentid == item.id).Count()</td>
+
+
+                                                        <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.id">@SharedLocalizer["Update"]</a></td>
+                                                        <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id">@SharedLocalizer["Delete"]</a></td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </center>
+    </div>
+    @section scripting{
+        <script src="~/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="~/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="~/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="~/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+        <script src="~/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="~/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+        <script src="~/plugins/jszip/jszip.min.js"></script>
+        <script src="~/plugins/pdfmake/pdfmake.min.js"></script>
+
+        <script>
+            $(function () {
+                $(".js-basic-example").DataTable({
+                    "responsive": true, "lengthChange": true, "autoWidth": false, "pageLength": 5, "lengthMenu": [[3, 5, 10, 25, 50, -1], [3, 5, 10, 25, 50, "All"]],
+                    "buttons": ["excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('.table-responsive .col-md-6:eq(0)');
+                $('.js-basic-example').DataTable({
+                    "destroy": true,
+                    "retrieve": true,
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": false,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false,
+                    "responsive": true,
+                    "pageLength": 5,
+                    "bLengthChange": false,
+                    "bInfo": false,
+                    "bSort": true,
+                    "bFilter": true,
+                    "lengthMenu": [[3, 5, 10, 25, 50, -1], [3, 5, 10, 25, 50, "All"]],
+
+                });
+
+
+
+            });
+        </script>
+
+        <script src="~/plugins/pdfmake/vfs_fonts.js"></script>
+        <script src="~/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+        <script src="~/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+        <script src="~/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+        <script src="~/bootstrap-select/js/bootstrap-select.js"></script>
+    }
+
+</body>
+</html>

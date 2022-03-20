@@ -1,0 +1,140 @@
+﻿@model Works_ForVM
+
+@{
+    ViewData["Title"] = "Index";
+    
+    var Culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+}
+
+
+<html>
+<head>
+    @section style{
+        <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+        <style>
+            h1 {
+                text-align: center;
+                margin-top: 30px;
+                color: red;
+            }
+
+            form {
+                width: 500px;
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%,0)
+            }
+
+            .y {
+                position: relative;
+                margin-left: 10px;
+                width: 310px
+            }
+        </style>
+    }
+    </head>
+<body>
+    <center>
+        <h1>@SharedLocalizer["Assign Employee To Project"]</h1>
+    </center>
+    <form asp-area="Works" asp-controller="Works" asp-action="create" method="post">
+        <input type="hidden" value="@ViewBag.disabled" id="dis" />
+        <input type="hidden" value="@ViewBag.deptn"  id="dn"/>
+        <div class="form-group">
+            <label asp-for="Dnum">@SharedLocalizer["department"]</label>
+            <select asp-for="Dnum" class="form-control" asp-items="(SelectList)ViewBag.departmentlist" id="dept">
+
+                <option value="0" selected>@SharedLocalizer["Choose Department"] </option>
+            </select><br />
+            <span asp-validation-for="Dnum" class="text-danger font-weight-bold"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project_id">@SharedLocalizer["Project"]</label>
+            <select asp-for="Project_id" class="form-control" asp-items="(SelectList)ViewBag.projectlist" disabled id="pro">
+                <option>@SharedLocalizer["Choose Project"] </option>
+            </select><br />
+            <span asp-validation-for="Project_id" class="text-danger font-weight-bold"></span>
+
+        </div>
+        <div class="form-group">
+            <label asp-for="Employee_id">@SharedLocalizer["Employee"]</label>
+            <input type="Text" class="form-control" id="name" asp-for="Employee_id" readonly>
+            <span asp-validation-for="Employee_id" class="text-danger font-weight-bold"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="hours">@SharedLocalizer["Hours"]</label>
+            <input type="Text" class="form-control" id="name" placeholder="@SharedLocalizer["Enter Hours"]" asp-for="hours">
+            <span asp-validation-for="hours" class="text-danger font-weight-bold"></span>
+        </div>
+
+
+
+
+        <center>
+            <button type="submit" class="btn btn-primary">@SharedLocalizer["Assign"]</button>
+
+        </center>
+
+    </form>
+    @section script{
+        <script src="~/plugins/jquery/jquery.js"></script>
+        <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+        <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    
+        
+
+
+    <script>
+        $(document).ready(function () {
+            $("#dept").val("0").change();
+
+            $("#pro").prop("disabled", $("#dis").val());
+
+            $("#dept").change(function () {
+
+
+
+                var status = $("#dept option:selected").val();
+
+                $("#pro").find('option')
+                    .remove()
+                    .end()
+
+                if (status != 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/Works/Works/GetData',
+                        data: { state: status },
+
+                        success: function (res) {
+                            $.each(res, function (i, e) {
+                                $("#pro").append("<option value='" + e.id + "'>" + e.name + "</option>");
+
+                            });
+                            $("#pro").prop("disabled", false);
+                        }
+
+                    });
+                } else {
+                    $("#pro").prop("disabled", true);
+                }
+
+            });
+
+        });
+
+
+
+
+
+
+
+
+
+    </script>
+    }
+    
+    </body>
+</html>

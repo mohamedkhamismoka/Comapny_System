@@ -1,0 +1,132 @@
+﻿
+@model EmpVM
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+    var path = "~/files/images/" + Model.imgname;
+    var cvpath = "~/files/docs/" + Model.cvname;
+}
+@section style{
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: red;
+        }
+
+        form {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0)
+        }
+        .y {
+            position: relative;
+            margin-left: 10px;
+            width: 310px
+        }
+       
+    </style>
+}
+<center>
+    <h1> @SharedLocalizer["Delete Employee"]</h1>
+</center>
+<form asp-area="Employee" asp-controller="Employee" asp-action="Delete" method="post" style="width:500px">
+    <div class="form-group">
+        <label asp-for="name">@SharedLocalizer["Name"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter Name" asp-for="name" disabled>
+        <span asp-validation-for="name" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="salary">@SharedLocalizer["Salary"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter Salary" asp-for="salary" disabled>
+        <span asp-validation-for="salary" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Hiredate">@SharedLocalizer["Hiredate"]</label>
+        <input type="Date" class="form-control" id="name" placeholder="Enter Hiredate" asp-for="Hiredate" disabled>
+        <span asp-validation-for="Hiredate" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="address">@SharedLocalizer["address"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter address" asp-for="address" disabled>
+        <span asp-validation-for="address" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="departmentid">@SharedLocalizer["department"]</label><br />
+        <select asp-for="departmentid" asp-items="(SelectList)ViewBag.departmentlist" class="form-control"  disabled>
+            <option>Choose Department</option>
+        </select><br />
+        <span asp-validation-for="departmentid" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="phone">@SharedLocalizer["phone"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter phone" asp-for="phone" disabled>
+        <span asp-validation-for="phone" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label>@SharedLocalizer["photo"]</label>
+        <img src="~/files/images/@Model.imgname" width="120" height="80" style="margin-left:10px;" />
+
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+        <label>@SharedLocalizer["CV"]</label>
+        <a href="~/files/docs/@Model.cvname" download="download" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
+
+    </div>
+    <div class="demo-checkbox">
+        <input type="checkbox" asp-for="isActive" checked="" disabled>
+        <label asp-for="isActive">@SharedLocalizer["IsActive"]</label>
+        <span asp-validation-for="isActive" class="text-danger"></span>
+    </div>
+    <center>
+        <button class="btn btn-success" asp-area="Employee" asp-controller="Employee" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
+
+        <button type="submit" class="btn btn-danger" style="display:none" id="do">@SharedLocalizer["Delete"]</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            @SharedLocalizer["Delete"]
+        </button>
+
+
+    </center>
+</form>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:9999">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><img src="~/images/download.png" width="50" height="50" />@SharedLocalizer["Warning"]</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @SharedLocalizer["Are you sure you want to Delete Employee?"]
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-outline-danger" name="in_confirm_insert" id="delete-button">@SharedLocalizer["Delete"]</button>
+                <button data-dismiss="modal" class="btn btn-outline-success" name="in_confirm_insert" id="cancel-delete-button">@SharedLocalizer["Cancel"]</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+@section script{
+    <script src="~/plugins/jquery/jquery.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#MyModal").modal();
+
+            $("#exampleModal").on("click", "#delete-button", function () {
+                $("#do").click();
+            });
+
+
+        });
+
+    </script>
+}
+
+

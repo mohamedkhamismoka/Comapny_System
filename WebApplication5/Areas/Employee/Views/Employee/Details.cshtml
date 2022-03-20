@@ -1,0 +1,162 @@
+﻿
+@model EmpVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Layout/MainLayout.cshtml";
+    var path = "~/files/images/" + Model.imgname;
+    var cvpath = "~/files/docs/" + Model.cvname;
+}
+@section style{
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+    <style>
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: red;
+        }
+
+        form {
+            width: 500px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0)
+        }
+
+        .y {
+            position: relative;
+            margin-left: 10px;
+            width: 310px
+        }
+
+        th {
+            color: red
+        }
+    </style>
+}
+<center>
+    <h1>
+        @SharedLocalizer["Employee Details"]
+    </h1>
+</center>
+<form>
+    <div class="form-group">
+        <label asp-for="name">@SharedLocalizer["Name"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter Name" asp-for="name" disabled>
+        <span asp-validation-for="name" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="salary">@SharedLocalizer["Salary"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter Salary" asp-for="salary" disabled>
+        <span asp-validation-for="salary" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Hiredate">@SharedLocalizer["Hiredate"]</label>
+        <input type="Date" class="form-control" id="name" placeholder="Enter Hiredate" asp-for="Hiredate" disabled>
+        <span asp-validation-for="Hiredate" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="address">@SharedLocalizer["address"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter address" asp-for="address" disabled>
+        <span asp-validation-for="address" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="departmentid">@SharedLocalizer["department"]</label><br />
+        <select asp-for="departmentid" class="form-control"  asp-items="(SelectList)ViewBag.departmentlist" disabled>
+            <option>Choose Department</option>
+        </select><br />
+        <span asp-validation-for="departmentid" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="phone">@SharedLocalizer["phone"]</label>
+        <input type="Text" class="form-control" id="name" placeholder="Enter phone" asp-for="phone" disabled>
+        <span asp-validation-for="phone" class="text-danger font-weight-bold"></span>
+    </div>
+    <div class="form-group">
+        <label>@SharedLocalizer["photo"]</label>
+        <img src="~/files/images/@Model.imgname" width="120" height="80" style="margin-left:10px;" />
+
+    </div>
+
+    <div class="form-group" style="margin-top:10px">
+        <label>@SharedLocalizer["CV"]</label>
+        <a href="~/files/docs/@Model.cvname" download="download" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
+
+    </div>
+    <div class="demo-checkbox">
+        <input type="checkbox" asp-for="isActive" checked="" disabled>
+        <label asp-for="isActive">@SharedLocalizer["IsActive"]</label>
+        <span asp-validation-for="isActive" class="text-danger"></span>
+    </div>
+
+    <h3 style="margin-top:10px;text-align:center";>@SharedLocalizer["Works In"]</h3>
+    <table class="table table-hover table-bordered table-striped "  style="text-align:center;width:600px;height:200px;overflow-x:auto">
+
+        <thead>
+            <tr>
+
+                <th>@SharedLocalizer["Project"]</th>
+                <th>@SharedLocalizer["location"]</th>
+            <th>@SharedLocalizer["Hours"]</th>
+            <th>@SharedLocalizer["Project status"]</th>
+
+           
+                <th>@SharedLocalizer["Delete"]</th>
+            </tr>
+        </thead>
+        <tbody class="m">
+            @foreach (var item in ViewBag.ex)
+            {
+            <tr>
+
+                <td>@item.Project.name </td>
+                <td>@item.Project.location </td>
+                <td>@item.hours</td>
+                <td>@SharedLocalizer[""+@item.Project.state+""]</td>
+                @if (item.Project.state == "Not started Yet")
+                {
+
+                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger" data-toggle="tooltip" title="@SharedLocalizer["can delete started and running project only"]">@SharedLocalizer["Delete"]</a></td>
+                }
+                else if (item.Project.state == "Running")
+                {
+
+                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger" data-toggle="tooltip" title="@SharedLocalizer["can delete  started and running project only"]">@SharedLocalizer["Delete"]</a></td>
+                }
+                else
+                {
+
+                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger disabled" data-toggle="tooltip" title="@SharedLocalizer["Cant Delete project finished"]">@SharedLocalizer["Delete"]</a></td>
+
+                }
+            </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+    <center>
+        <button class="btn btn-success" asp-area="Employee" asp-controller="Employee" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
+
+
+    </center>
+</form>
+@section script{
+    <script src="~/plugins/jquery/jquery.js"></script>
+    <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
+    <script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+    <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+
+        });
+    </script>
+}
+
+
+
+
