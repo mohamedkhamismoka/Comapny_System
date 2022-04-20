@@ -1,14 +1,14 @@
-this app is used to represent office sales 
-contain products,customers,branches and making pill
-by customer phone to ensure uniqiness and integrity of data
-where email and phone are unique
-and this application contain some statistics services
-such sum of sales and other
-and send it with total price to customer E-mail
-contain CRUD operatioins for 
-Customer
-branch
-product
-order
-using Asp.net core 5
-Tool:visual studio 2022
+this is my first application in asp.net core
+i tried to apply what ihave learned in this simple project
+Comany system is for companythat havr employess ,Project,Department
+and there is section to send suggestions
+Database:
+consists of
+Employee table
+Department table
+Project Table
+works table that represent bridge table between Employee and Project tables (M:M Relationship)
+
+Tool:Visual Studio 2019
+
+Framework:.Net 5
