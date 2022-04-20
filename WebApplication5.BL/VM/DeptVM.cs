@@ -10,7 +10,7 @@ namespace WebApplication5.BL.VM
 {
    public  class DeptVM
     {
-        [Key]
+       
         public int id { get; set; }
         [Required(ErrorMessage ="Name is required")]
         [MinLength(2,ErrorMessage ="min length is 2")]

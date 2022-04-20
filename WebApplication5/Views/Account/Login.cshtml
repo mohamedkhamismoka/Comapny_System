@@ -35,7 +35,7 @@
                 <form asp-controller="Account" asp-action="Login" method="post">
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="input-group mb-2 mt-1">
-                        <input type="email" class="form-control" placeholder="Email" asp-for="mail">
+                        <input type="email" class="form-control em" placeholder="Email" asp-for="mail">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -44,10 +44,9 @@
 
                     </div>
 
-                    <span asp-validation-for="mail" class="text-danger"></span>
 
                     <div class="input-group mb-2 mt-1">
-                        <input type="password" class="form-control" placeholder="Password" asp-for="password">
+                        <input type="password" class="form-control pass" placeholder="Password" asp-for="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -55,7 +54,7 @@
                         </div>
 
                     </div>
-                    <span asp-validation-for="password" class="text-danger"></span>
+                
 
                     <div class="row">
                         <div class="col-8">
@@ -68,7 +67,7 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block login">Sign In</button>
                         </div>
                         <!-- /.col -->
                     </div>
@@ -136,6 +135,9 @@
     <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.min.js"></script>
+    <script>
+     
+    </script>
    
 </body>
 </html>

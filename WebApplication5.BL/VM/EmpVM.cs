@@ -13,7 +13,7 @@ namespace WebApplication5.BL.VM
    public class EmpVM
     {
 
-        [Key]
+  
         public int id { get; set; }
         [Required(ErrorMessage = "Name is required")]
         [MinLength(3, ErrorMessage = "min length is 3")]

@@ -64,7 +64,7 @@ namespace WebApplication5.Areas.Project.Controllers
         {
             try
             {//first validate that startDate less than finish date and then determine state of project
-                if (ModelState.IsValid && DateVaildator.validate(proj.Startdate, proj.Finishdate) == true)
+                if (ModelState.IsValid && DateVaildator.validate(proj.Startdate, proj.Finishdate))
 
                 {
                     if (proj.Finishdate > DateTime.Now.Date && proj.Startdate > DateTime.Now.Date)
@@ -121,7 +121,7 @@ namespace WebApplication5.Areas.Project.Controllers
         {
             try
             {
-                if (ModelState.IsValid&&DateVaildator.validate(proj.Startdate, proj.Finishdate) == true)
+                if (ModelState.IsValid&&DateVaildator.validate(proj.Startdate, proj.Finishdate))
                 {
                     var data = mapper.Map<WebApplication5.DAL.Entity.Project>(proj);
                     pro.update(data);
@@ -163,13 +163,5 @@ namespace WebApplication5.Areas.Project.Controllers
 
 
 
-        [HttpPost]
-        //send data to apply filter
-        public JsonResult GetData(int state)
-        {
-            var data = pro.getFilter(a => a.Dnum == state);
-            return Json(data);
-
-        }
     }
 }

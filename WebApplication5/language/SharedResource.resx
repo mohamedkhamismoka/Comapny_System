@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
   <data name="Active Only" xml:space="preserve">
     <value>Active Only</value>
   </data>
@@ -227,6 +230,9 @@
   </data>
   <data name="Departments" xml:space="preserve">
     <value>Departments</value>
+  </data>
+  <data name="Disabled" xml:space="preserve">
+    <value>Disabled</value>
   </data>
   <data name="Download CV" xml:space="preserve">
     <value>Download CV</value>
@@ -419,8 +425,5 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
-  </data>
-  <data name="للل" xml:space="preserve">
-    <value>تاا</value>
   </data>
 </root>

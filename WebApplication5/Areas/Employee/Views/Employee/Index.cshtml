@@ -47,26 +47,8 @@
                                 <center>
                                     <h1 style="text-align:center;color:red;margin-top:50px;margin-bottom:10px">@SharedLocalizer["Employee Card"]</h1>
                                     <a class="btn btn-primary" asp-area="Employee" asp-controller="Employee" asp-action="create" style="margin-bottom:5px;margin-top:2px"><i class="fa fa-plus" style="margin:4px"></i>@SharedLocalizer["Create new Employee"]</a>
-                                    @*<form class="formas" asp-area="Employee" asp-controller="Employee" asp-action="Index" method="get" style="width:180px;display:inline-block;margin-top:4px;">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" placeholder="search" name="search" id="se">
-
-                                                <div class="input-group-append">
-                                                    <button type="submit" class="btn btn-dark"><i class="fa fa-search"></i></button>
-                                                </div>
-                                                <input type="hidden" name="state" value="@ViewBag.x" id="hid" />
-                                            </div>
-
-
-                                        </form>*@
-                                    <form>
-                                        <label for="state">@SharedLocalizer["Card Option"]</label>
-                                        <select id="Status" style="margin-bottom:3px">
-                                            <option value="all"> @SharedLocalizer["All"]</option>
-                                            <option value="active">@SharedLocalizer["Active Only"]</option>
-                                        </select>
-
-                                    </form>
+                                  
+                                 
 
                                 </center>
                             </div>
@@ -79,7 +61,7 @@
                                             <tr>
 
                                                 <th>@SharedLocalizer["Name"]</th>
-                                                <th>@SharedLocalizer["Salary"]</th>
+                                                <th>@SharedLocalizer["Status"]</th>
                                                 <th>@SharedLocalizer["department"]</th>
                                                 <th>@SharedLocalizer["Photo"]</th>
 
@@ -97,7 +79,16 @@
                                             <tr>
                                                
                                                 <td style="font-size:17px">@item.name</td>
-                                                <td>@item.salary</td>
+                                                <td>
+                                                            @if (item.isActive)
+                                                            {
+                                                                <p>@SharedLocalizer["Active"]</p>
+                                                                                                        }
+                                                            else
+                                                            {
+                                                               <p>@SharedLocalizer["Disabled"]</p> 
+                                                            }
+                                                        </td>
                                                 <td>@item.Department.name</td>
                                                 <td><img src="~/files/images/@item.imgname" width="50" height="50" asp-append-version="true"></td>
                                                 <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@item.id">@SharedLocalizer["Details"]</a></td>
@@ -183,56 +174,7 @@
 
 
 
-        <script>
-
-            $(document).ready(function () {
-                $("#Status").val($("#hid").val()).change()
-
-                $("#Status").change(function () {
-
-                    $("#hid").val($("#Status option:selected").val());
-                    $(".m").empty();
-
-                    var status = $("#Status option:selected").val();
-
-                    $.ajax({
-                        type: "POST",
-                        url: '/Employee/Employee/GetData',
-                        data: { state: status },
-
-                        success: function (res) {
-                            $.each(res, function (i, e) {
-                                if (e != null) {
-
-                                    $(".m").append("<tr> <td>" + e.name + "</td> <td>" + e.salary + "</td> <td>" + e.Department.name + "</td> <td><img class='img' src='/files/images/" + e.imgname + "' asp-append-version=" + true + " width='50' height='50'></td>  <td><a class='btn btn-primary' href='/Employee/Employee/Details?id=" + e.id + "' >@SharedLocalizer["Details"]</a></td>  <td><a class='btn btn-success' href='/Employee/Employee/update?id=" + e.id + "' >@SharedLocalizer["Update"]</a></td>   <td><button class='btn btn-danger' href='/Employee/Employee/Delete?id=" + e.id + "'>@SharedLocalizer["Delete"]</a></td>   <td><a class='btn btn-warning' style='color: black' href='/Works/Works/Create/?Employee_id=" + e.id +"'><i class='fas fa-plus' data-toggle='tooltip' title='Add To Project'></i></a></td>   </tr>");
-                                }
-                                else {
-                                    (".m").append("<tr> No Data Found!</tr>");
-                                }
-
-                            });
-                        }
-
-
-
-
-
-
-                    });
-
-                    });
-
-            });
-
-
-
-
-
-
-
-
-
-        </script>
+       
     }
     </body>
     </html>

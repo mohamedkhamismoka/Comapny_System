@@ -30,7 +30,7 @@ namespace WebApplication5.BL.Reposatory
             d.SaveChanges();
         }
         //this method to get all employees from database based on filter
-        public IEnumerable<Employee> get(Func<Employee, bool> filter=null)
+        public IEnumerable<Employee> getbyfilter(Func<Employee, bool> filter=null)
         {
             if (filter == null)
             {

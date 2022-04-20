@@ -44,50 +44,20 @@ namespace WebApplication5.Areas.De.Controllers
 
 
         //take state and search from select list to filter data
-        public IActionResult Index(string search,string state)
+        public IActionResult Index(string state)
         {
-    
-            if (search == null )
-
+            if (state == null || state=="All")
             {
-                
-                 if (state == "all" ||state==null)
-                {
-                    var data = emp.get(a => a.isDeleted == false);
-
-                    var model = mapper.Map<IEnumerable<EmpVM>>(data);
-                    ViewBag.x = "all";
-
-                    return View(model);
-                }
-                else
-                {
-                    var data = emp.get(a => a.isDeleted == false&&a.isActive==true);
-
-                    var model = mapper.Map<IEnumerable<EmpVM>>(data);
-                    ViewBag.x = "active";
-                    return View(model);
-                }
+                var data = emp.getbyfilter();
+                var res = mapper.Map<IEnumerable<EmpVM>>(data);
+                    return View(res);
             }
-
-            else 
+            else
             {
-                if (state == "all")
-                {
-                    var data = emp.get(a => a.isDeleted == false && (a.id.ToString() == search || a.salary.ToString() == search || a.name == search || a.Department.name == search));
 
-                    var model = mapper.Map<IEnumerable<EmpVM>>(data);
-                    ViewBag.x = "all";
-                    return View(model);
-                }
-                else
-                {
-                    var data = emp.get(a => a.isDeleted == false && a.isActive==true&&(a.id.ToString() == search || a.salary.ToString() == search || a.name == search || a.Department.name == search));
-
-                    var model = mapper.Map<IEnumerable<EmpVM>>(data);
-                    ViewBag.x = "active";
-                    return View(model);
-                }
+                var data = emp.getbyfilter(a=>a.isActive==true);
+                var res = mapper.Map<IEnumerable<EmpVM>>(data);
+                return View(res);
             }
           
          
@@ -247,14 +217,14 @@ namespace WebApplication5.Areas.De.Controllers
         {
             if(state=="all")
             {
-                var data = emp.get();
+                var data = emp.getbyfilter();
                 var model = mapper.Map<IEnumerable<EmpVM>>(data);
         
                 return Json(model);
             }
             else
             {
-                var data = emp.get(a=>a.isActive == true);
+                var data = emp.getbyfilter(a=>a.isActive == true);
                 var model = mapper.Map<IEnumerable<EmpVM>>(data);
     
                 return Json(model);

@@ -1,5 +1,6 @@
 ﻿@{
     var Culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+        int count=0;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -259,7 +260,10 @@
                     <img src="~/dist/img/user2-160x160.jpg" class="img-circle elevation-2 " alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block" style="font-size:12px;margin-top:2px">@User.Identity.Name</a>
+                    <a href="#" class="d-block" style="font-size:15px;margin-top:2px">
+                 
+                       @User.Identity.Name.Substring(0,@User.Identity.Name.Length-10)
+                    </a>
                 </div>
             </div>
 

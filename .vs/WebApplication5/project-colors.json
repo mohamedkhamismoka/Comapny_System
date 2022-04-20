@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5eb6c790-d158-4a44-b69d-086496f13faa": {
+      "ProjectGuid": "5eb6c790-d158-4a44-b69d-086496f13faa",
+      "DisplayName": "WebApplication5",
+      "ColorIndex": 0
+    },
+    "d3e5fb82-9535-4a49-b554-83262e8b8217": {
+      "ProjectGuid": "d3e5fb82-9535-4a49-b554-83262e8b8217",
+      "DisplayName": "WebApplication5.BL",
+      "ColorIndex": 1
+    },
+    "6d815bc2-bd09-44f8-9e05-8b6e6fcfa6a9": {
+      "ProjectGuid": "6d815bc2-bd09-44f8-9e05-8b6e6fcfa6a9",
+      "DisplayName": "WebApplication5.DAL",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

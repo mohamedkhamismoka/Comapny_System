@@ -14,6 +14,7 @@ namespace WebApplication5.DAL.Entity
    public class Employee
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
        
         public string name { get; set; }
@@ -28,7 +29,7 @@ namespace WebApplication5.DAL.Entity
         public long phone { get; set; }
         public int departmentid { get; set; }
         [ForeignKey("departmentid")]
-        [JsonIgnore]
+ 
         public Department Department { get; set; }
         public string cvname { get; set; }
         public string imgname { get; set; }

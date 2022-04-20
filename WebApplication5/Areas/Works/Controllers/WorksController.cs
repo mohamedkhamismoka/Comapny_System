@@ -82,40 +82,7 @@ namespace WebApplication5.Areas.Works.Controllers
     
           
         }
-        //public IActionResult Update(int id)
-        //{
-        //    var data = work.getFilter(a => a.id == id).FirstOrDefault();
-        //    var model = mapper.Map<Works_ForVM>(data);
-        //    ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-        //    ViewBag.id = model.Employee_id;
-        //    ViewBag.proid = model.Project_id;
-
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public IActionResult Update(Works_ForVM works,int oldproject,int id)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            var data = mapper.Map<Works_For>(works);
-        //            work.update(data,oldproject,id);
-
-        //            RedirectToAction("Index", "Employee", new { area = "Employee" });
-        //        }
-        //        else
-        //        {
-        //            return View(works);
-        //        }
-
-        //       return RedirectToAction("Index", "Employee", new { area = "Employee" });
-        //    }
-        //    catch (Exception ee)
-        //    {
-        //        return View(works);
-        //    }
-        //}
+        
         //Delete data from database
         public IActionResult Delete(int empid, int proid)
         {

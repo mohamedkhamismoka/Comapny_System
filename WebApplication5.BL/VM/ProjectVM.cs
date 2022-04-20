@@ -11,7 +11,7 @@ namespace WebApplication5.BL.VM
 {
    public class ProjectVM
     {
-        [Key]
+    
         public int id { get; set; }
         [Required(ErrorMessage ="name is required")]
         public string name { get; set; }
