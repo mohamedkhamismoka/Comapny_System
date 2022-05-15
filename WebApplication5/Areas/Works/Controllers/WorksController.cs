@@ -21,18 +21,18 @@ namespace WebApplication5.Areas.Works.Controllers
         private readonly IMapper mapper;
         private readonly IDepartment dept;
         private readonly IWorks_For work;
-        private readonly DataContext d;
+        
 
         //for dependency injection
 
-        public WorksController(IEmployee emp, IProject pro, IMapper mapper,IDepartment dept,IWorks_For work,DataContext d)
+        public WorksController(IEmployee emp, IProject pro, IMapper mapper,IDepartment dept,IWorks_For work)
         {
             this.emp = emp;
             this.pro = pro;
             this.mapper = mapper;
             this.dept = dept;
             this.work = work;
-            this.d = d;
+          
         }
         // show all records of entity works_for
         public IActionResult Index()
