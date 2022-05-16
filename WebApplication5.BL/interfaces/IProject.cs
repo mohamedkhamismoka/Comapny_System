@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApplication5.BL.VM;
 using WebApplication5.DAL.Entity;
 
 namespace WebApplication5.BL.interfaces

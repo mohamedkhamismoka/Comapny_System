@@ -34,7 +34,7 @@ namespace WebApplication5.BL.VM
 
         [Required(ErrorMessage ="Choose Department")]
         public int departmentid { get; set; }
-        [ForeignKey("departmentid")]
+ 
 
         public Department Department { get; set; }
 

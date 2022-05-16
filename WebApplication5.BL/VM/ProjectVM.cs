@@ -28,7 +28,7 @@ namespace WebApplication5.BL.VM
         
         public DateTime Finishdate { get; set; }
 
-        [ForeignKey("Dnum")]
+        
         public Department Department { get; set; }
 
         public string state { get; set; }
