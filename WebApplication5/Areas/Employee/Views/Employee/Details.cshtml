@@ -90,10 +90,13 @@
             </tr>
         </thead>
         <tbody class="m">
+         
+         
+          
             @foreach (var item in ViewBag.ex)
             {
             <tr>
-
+   
                 <td>@item.Project.name </td>
                 <td>@item.Project.location </td>
                 <td>@item.hours</td>
@@ -114,9 +117,13 @@
                     <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger disabled" data-toggle="tooltip" title="@SharedLocalizer["Cant Delete project finished"]">@SharedLocalizer["Delete"]</a></td>
 
                 }
-            </tr>
+                    </tr>
+                
+                }
+            
 
-            }
+            
+            
 
 
         </tbody>
@@ -132,7 +139,12 @@
 
     <script src="~/plugins/bootstrap/js/bootstrap.js"></script>
     <script>
+        if(@ViewBag.counter ==0){
+            $(".table").css("display","none");
+            $(".table").replaceWith("<h1>Not Assigned to project yet</h1>")
+        }
         $(document).ready(function () {
+
             $('[data-toggle="tooltip"]').tooltip();
 
         });

@@ -44,21 +44,13 @@ namespace WebApplication5.Areas.De.Controllers
 
 
         //take state and search from select list to filter data
-        public IActionResult Index(string state)
+        public IActionResult Index()
         {
-            if (state == null || state=="All")
-            {
+       
+            
                 var data = emp.getbyfilter();
                 var res = mapper.Map<IEnumerable<EmpVM>>(data);
                     return View(res);
-            }
-            else
-            {
-
-                var data = emp.getbyfilter(a=>a.isActive==true);
-                var res = mapper.Map<IEnumerable<EmpVM>>(data);
-                return View(res);
-            }
           
          
           
@@ -199,11 +191,17 @@ namespace WebApplication5.Areas.De.Controllers
  //show details of Employee depending on id
     public IActionResult Details(int id)
     {
+            int count = 0;
         ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
         var data = emp.getbyid(id);
         var model = mapper.Map<EmpVM>(data);
 
             ViewBag.ex = work.getFilter(a => a.Employee_id == model.id);
+            foreach (var item in ViewBag.ex)
+            {
+                count++;
+            }
+            ViewBag.counter = count;
             return View(model);
 
     }
