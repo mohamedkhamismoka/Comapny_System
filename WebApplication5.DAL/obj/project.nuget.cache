@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uXqW7R0mZQ6umx/bZrmkPzf5f/PNdEfgb87I6xM4aCV/u3K+rexmDkDTGZ0xTASYwMPz+OqouVv5Xz+GfU4WrA==",
+  "dgSpecHash": "0Gviqil7OLBPLs9imKANP8XOwNpJmER5qhS7vmcrg+8ZTZHB1pL93i52bXarUgJ5QCY18q4DkLR9uirDotN1tQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EL-Masria\\Desktop\\flash\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
+  "projectFilePath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EL-Masria\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\EL-Masria\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EL-Masria\\Desktop\\flash\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {}
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EL-Masria\\Desktop\\flash\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {
+    "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\flash\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
         "projectName": "WebApplication5.DAL",
-        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\flash\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\flash\\Comapny_System\\WebApplication5.DAL\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
