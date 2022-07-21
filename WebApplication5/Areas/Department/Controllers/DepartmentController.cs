@@ -10,10 +10,12 @@ using WebApplication5.BL.interfaces;
 using AutoMapper;
 using WebApplication5.BL.VM;
 using WebApplication5.BL.helper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication5.Areas.De.Controllers
 {
     [Area("Department")]
+    [Authorize]
     public class DepartmentController : Controller
     { // private to be hidden
         //readonly to assign value only in constructor for DI

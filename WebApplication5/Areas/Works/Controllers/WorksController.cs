@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -13,6 +14,7 @@ using WebApplication5.DAL.Entity;
 namespace WebApplication5.Areas.Works.Controllers
 {
     [Area("Works")]
+   [Authorize]
     public class WorksController : Controller
     {// private to be hidden
         //readonly to assign value only in constructor for DI

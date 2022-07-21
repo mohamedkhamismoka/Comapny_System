@@ -15,6 +15,11 @@
       "ProjectGuid": "6d815bc2-bd09-44f8-9e05-8b6e6fcfa6a9",
       "DisplayName": "WebApplication5.DAL",
       "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 3

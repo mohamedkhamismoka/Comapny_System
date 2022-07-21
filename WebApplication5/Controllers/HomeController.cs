@@ -6,29 +6,31 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication5.BL.interfaces;
 using WebApplication5.DAL.Database;
 using WebApplication5.Models;
 
 namespace WebApplication5.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmployee emp;
+        private readonly IDepartment dept;
 
-        DataContext d;
-      
-
-        public HomeController(ILogger<HomeController> logger, DataContext d)
+        public HomeController(ILogger<HomeController> logger, IEmployee emp,IDepartment Dept)
         {
             _logger = logger;
-            this.d = d;
+            this.emp = emp;
+            dept = Dept;
         }
        //Home page
        //and show count of employees and departments in cards
         public IActionResult Index()
         {
 
-            int [] arra = { d.departments.Count(),d.employees.Count() };
+            int [] arra = { emp.getbyfilter().Count(),dept.get().Count() };
             return View(arra);
         }
 

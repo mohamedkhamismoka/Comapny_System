@@ -237,9 +237,6 @@
   <data name="Download CV" xml:space="preserve">
     <value>Download CV</value>
   </data>
-  <data name="Email address" xml:space="preserve">
-    <value>Email address</value>
-  </data>
   <data name="Employee" xml:space="preserve">
     <value>Employee</value>
   </data>
@@ -344,6 +341,9 @@
   </data>
   <data name="Not started Yet" xml:space="preserve">
     <value>Not started Yet</value>
+  </data>
+  <data name="outlook mail address" xml:space="preserve">
+    <value>outlook mail address</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>

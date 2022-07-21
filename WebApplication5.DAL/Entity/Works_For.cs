@@ -17,7 +17,7 @@ namespace WebApplication5.DAL.Entity
     
         public int Employee_id { get; set; }
         public int hours { get; set; }
-           [ForeignKey("Employee_id")]
+        [ForeignKey("Employee_id")]
         public Employee Employee { get; set; }
 
         [ForeignKey("Project_id")]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using WebApplication5.BL.VM;
 
 namespace WebApplication5.Controllers
 {
+    [Authorize]
     public class MailController : Controller
     {
        public IActionResult Index()
@@ -31,7 +33,7 @@ namespace WebApplication5.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                    SmtpClient smtp = new SmtpClient("smtp-mail.outlook.com", 587);
                     smtp.EnableSsl = true;
                     smtp.Credentials = new NetworkCredential(comm.mail, comm.password);
                     smtp.Send(comm.mail, "atiffahmykhamis@gmail.com", comm.title, comm.body);

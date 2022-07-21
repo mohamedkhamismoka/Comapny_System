@@ -42,3 +42,4 @@ C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net5.0\ref\WebApplication5.DAL.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net5.0\WebApplication5.DAL.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net5.0\WebApplication5.DAL.genruntimeconfig.cache
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net5.0\WebApplication5.DAL.csproj.AssemblyReference.cache

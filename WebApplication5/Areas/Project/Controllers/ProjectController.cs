@@ -15,11 +15,12 @@ using WebApplication5.DAL.Database;
 using WebApplication5.DAL.Entity;
 using Microsoft.Extensions.Localization;
 using WebApplication5.language;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication5.Areas.Project.Controllers
 {
     [Area("Project")]
+    [Authorize]
     public class ProjectController :Controller
     {   // private to be hidden
         //readonly to assign value only in constructor for DI

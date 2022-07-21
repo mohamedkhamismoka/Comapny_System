@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,6 +18,7 @@ using WebApplication5.DAL.Entity;
 namespace WebApplication5.Areas.De.Controllers
 {
     [Area("Employee")]
+    [Authorize]
     public class EmployeeController : Controller
     {
         // private to be hidden
