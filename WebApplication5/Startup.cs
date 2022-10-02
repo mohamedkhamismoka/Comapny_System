@@ -56,6 +56,7 @@ namespace WebApplication5
             services.AddScoped<SignInManager<ApplicationUser>>();
             services.AddScoped<IProject, ProjectRepo>();
             services.AddScoped<IWorks_For, WorksRepo>();
+         
             //file of auto  mapper info
             services.AddAutoMapper(x => x.AddProfile(new DomainProfile()));
 
