@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MimeKit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -12,19 +13,42 @@ namespace WebApplication5.BL.helper
 {
     public class MailSender
     {//help sending mails to any comment
-        public static void mail(MailVM comm)
+        public static async Task mail(MailVM comm)
         {
             try
             {
-               
-                    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                    smtp.EnableSsl = true;
-                    smtp.Credentials = new NetworkCredential("atiffahmykhamis@gmail.com","01065578456M");
-                    smtp.Send("atiffahmykhamis@gmail.com", comm.mail, comm.title, comm.body);
+
+                var email = new MimeMessage()
+                {
+                    Sender = MailboxAddress.Parse("atiffahmykhamis@gmail.com"),
+                    Subject = "message from College system from " + comm.mail
 
 
 
-              
+                };
+                email.To.Add(MailboxAddress.Parse("mostafaatif824@gmail.com"));
+                var builder = new BodyBuilder();
+
+
+                builder.HtmlBody = comm.body;
+                email.Body = builder.ToMessageBody();
+
+
+                email.From.Add(new MailboxAddress("Comapny system ", "atiffahmykhamis@gmail.com"));
+
+
+
+                using (var smtp = new SmtpClient())
+                {
+                    smtp.Connect("smtp.gmail.com", 587, false);
+                    smtp.Authenticate("atiffahmykhamis@gmail.com", "esdialkwijqhgter");
+                    await smtp.SendAsync(email);
+                    smtp.Disconnect(true);
+                }
+
+
+
+
             }
             catch (Exception e)
             {

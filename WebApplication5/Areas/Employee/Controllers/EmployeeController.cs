@@ -31,7 +31,7 @@ namespace WebApplication5.Areas.De.Controllers
         private readonly IWorks_For work;
 
         //for dependency injection
-        public EmployeeController(IEmployee emp, IMapper mapper, IDepartment dept,IProject pro,IWorks_For work)
+        public EmployeeController(IEmployee emp, IMapper mapper, IDepartment dept, IProject pro, IWorks_For work)
         {
             this.mapper = mapper;
             this.emp = emp;
@@ -39,45 +39,38 @@ namespace WebApplication5.Areas.De.Controllers
             this.pro = pro;
             this.work = work;
         }
-        //public Employee employee { get; set; }
-        //[BindProperty]
-        //public IFormFile image { get; set; }
-        //[Area("Employee")]
-
-
-        //take state and search from select list to filter data
         public IActionResult Index()
         {
-       
-            
-                var data = emp.getbyfilter();
-                var res = mapper.Map<IEnumerable<EmpVM>>(data);
-                    return View(res);
-          
-         
-          
+
+
+            var data = emp.getbyfilter();
+            var res = mapper.Map<IEnumerable<EmpVM>>(data);
+            return View(res);
+
+
+
         }
 
 
 
 
-    
-   //craete Employee
-    public IActionResult create()
-    {
-            //fill select with data where value=id and text=name
-        ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-        return View();
-    }
 
-    [HttpPost]
+        //craete Employee
+        public IActionResult create()
+        {
+            //fill select with data where value=id and text=name
+            ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
+            return View();
+        }
+
+        [HttpPost]
         //craete Employee
         public IActionResult create(EmpVM model)
-    {
-        try
         {
-            if (ModelState.IsValid)
-            {//check first that cv and image not null 
+            try
+            {
+                if (ModelState.IsValid)
+                {//check first that cv and image not null 
                     if (model.cv != null && model.img != null)
                     {
                         var cvname = Fileuploader.uploader("docs", model.cv);
@@ -93,43 +86,43 @@ namespace WebApplication5.Areas.De.Controllers
                         ViewBag.warn = "Enter valid cv and image";
                         return View(model);
                     }
-            }
-              ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-                
-                return View(model);
-            
-        }
-        catch (Exception e)
-        {
+                }
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
                 return View(model);
+
+            }
+            catch (Exception e)
+            {
+                ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
+
+                return View(model);
+            }
+
+        }
+        //view to update employee and take id to show sdata of employee to update
+        public IActionResult update(int id)
+        {
+            ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
+            var data = emp.getbyid(id);
+
+            var model = mapper.Map<EmpVM>(data);
+
+
+
+
+            return View(model);
         }
 
-    }
-   //view to update employee and take id to show sdata of employee to update
-    public IActionResult update(int id)
-    {
-        ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-        var data = emp.getbyid(id);
-          
-        var model = mapper.Map<EmpVM>(data);
-
-
-            
-            
-            return View(model);
-    }
-   
-    [HttpPost]
-       //update employee and empo reperesnt new values 
-        public IActionResult update(EmpVM empo,string img,string cv)
-    {
-        try
+        [HttpPost]
+        //update employee and empo reperesnt new values 
+        public IActionResult update(EmpVM empo, string img, string cv)
         {
-            if (ModelState.IsValid)
+            try
             {
-                    if (empo.cv != null && empo.img!=null)
+                if (ModelState.IsValid)
+                {
+                    if (empo.cv != null && empo.img != null)
                     {
                         var cvname = Fileuploader.uploader("docs", empo.cv);
                         var imgname = Fileuploader.uploader("images", empo.img);
@@ -148,55 +141,55 @@ namespace WebApplication5.Areas.De.Controllers
                         emp.update(data);
                         return RedirectToAction("Index");
                     }
-                
-                  
+
+
                 }
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
                 return View(empo);
-            
-        }
-        catch (Exception e)
+
+            }
+            catch (Exception e)
             {
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
                 return View(empo);
+            }
         }
-    }
-  // show employee data  that be deleted  by id
-    public IActionResult Delete(int id)
-    {
-        ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-        var data = emp.getbyid(id);
-        var model = mapper.Map<EmpVM>(data);
-        return View(model);
+        // show employee data  that be deleted  by id
+        public IActionResult Delete(int id)
+        {
+            ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
+            var data = emp.getbyid(id);
+            var model = mapper.Map<EmpVM>(data);
+            return View(model);
 
 
-    }
+        }
 
-    [HttpPost]
-    [ActionName("Delete")]
-    //delete employee
-    public IActionResult ConfirmDelete(EmpVM empo)
-    {
+        [HttpPost]
+        [ActionName("Delete")]
+        //delete employee
+        public IActionResult ConfirmDelete(EmpVM empo)
+        {
 
-        var data = mapper.Map<Employee>(empo);
-        emp.delete(data);
+            var data = mapper.Map<Employee>(empo);
+            emp.delete(data);
             Fileuploader.delete("docs", empo.cvname);
             Fileuploader.delete("images", empo.imgname);
             return RedirectToAction("Index");
 
 
 
-    }
+        }
 
- //show details of Employee depending on id
-    public IActionResult Details(int id)
-    {
+        //show details of Employee depending on id
+        public IActionResult Details(int id)
+        {
             int count = 0;
-        ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-        var data = emp.getbyid(id);
-        var model = mapper.Map<EmpVM>(data);
+            ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
+            var data = emp.getbyid(id);
+            var model = mapper.Map<EmpVM>(data);
 
             ViewBag.ex = work.getFilter(a => a.Employee_id == model.id);
             foreach (var item in ViewBag.ex)
@@ -206,36 +199,36 @@ namespace WebApplication5.Areas.De.Controllers
             ViewBag.counter = count;
             return View(model);
 
-    }
+        }
 
 
 
-      
+
         [HttpPost]
-       
+
         public JsonResult GetData(string state)
         {
-            if(state=="all")
+            if (state == "all")
             {
                 var data = emp.getbyfilter();
                 var model = mapper.Map<IEnumerable<EmpVM>>(data);
-        
+
                 return Json(model);
             }
             else
             {
-                var data = emp.getbyfilter(a=>a.isActive == true);
+                var data = emp.getbyfilter(a => a.isActive == true);
                 var model = mapper.Map<IEnumerable<EmpVM>>(data);
-    
+
                 return Json(model);
             }
 
         }
 
-    
 
 
 
-        }
 
     }
+
+}

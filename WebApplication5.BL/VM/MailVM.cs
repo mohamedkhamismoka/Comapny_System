@@ -11,11 +11,9 @@ namespace WebApplication5.BL.VM
     {
         [Required(ErrorMessage ="Mail Address is Required")]
         public string mail { get; set; }
-        [Required(ErrorMessage = "password is Required")]
-        public string password { get; set; }
+        
         [Required(ErrorMessage = "Message is Required")]
         public string body { get; set; }
-        [Required(ErrorMessage = "title is Required")]
-        public string title { get; set; }
+  
     }
 }
