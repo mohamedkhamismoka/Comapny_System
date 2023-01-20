@@ -234,10 +234,11 @@ namespace WebApplication5.Controllers
 
                         };
                         await usermanager.CreateAsync(user);
+                        await usermanager.AddLoginAsync(user, info);
                     }
-                    await usermanager.AddLoginAsync(user, info);
+                    
                     await signin.SignInAsync(user, isPersistent: false);
-                    return LocalRedirect(ReturnUrl);
+                    return RedirectToAction("Index","Home");
                 }
             }
             ViewBag.ErrorTitle = $"Email claim do not recieved from:{info.LoginProvider}";
