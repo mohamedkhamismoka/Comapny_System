@@ -32,9 +32,6 @@ namespace WebApplication5.BL.VM
         public Department Department { get; set; }
 
         public string state { get; set; }
-        public ProjectVM()
-        {
-           
-        }
+     
     }
 }

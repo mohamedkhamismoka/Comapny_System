@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "WebApplication5/1.0.0": {
         "dependencies": {
+          "AutoMapper": "10.1.1",
           "Microsoft.AspNetCore.Authentication.Facebook": "5.0.6",
           "Microsoft.AspNetCore.Authentication.Google": "5.0.6",
           "Microsoft.AspNetCore.Http.Features": "5.0.12",

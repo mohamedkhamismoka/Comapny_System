@@ -19,7 +19,7 @@ namespace WebApplication5.BL.VM
         [MinLength(3, ErrorMessage = "min length is 3")]
         public string name { get; set; }
         [Required(ErrorMessage ="Address required")]
-        [RegularExpression("[0-9]{2,5}-[a-zA-Z]{1,50}-[a-zA-Z]{1,50}-[a-zA-Z]{1,50}", ErrorMessage = "address must like 12-Street name-cityname-countryname")]
+        [RegularExpression("[0-9]{2,5}-[a-zA-Z]{1,50}-[a-zA-Z]{1,50}-[a-zA-Z]{1,50}", ErrorMessage = "address must like 12-Streetname-cityname-countryname")]
         public string address { get; set; }
         [Required(ErrorMessage = "Salary is required")]
         public int salary { get; set; }
@@ -43,8 +43,9 @@ namespace WebApplication5.BL.VM
         public string cvname { get; set; }
         public string imgname { get; set; }
 
+        [Required(ErrorMessage = "CV required")]
         public IFormFile cv { get; set; }
-
+        [Required(ErrorMessage = "image required")]
         public IFormFile img { get; set; }
       
 

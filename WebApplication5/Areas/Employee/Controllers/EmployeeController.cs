@@ -70,9 +70,7 @@ namespace WebApplication5.Areas.De.Controllers
             try
             {
                 if (ModelState.IsValid)
-                {//check first that cv and image not null 
-                    if (model.cv != null && model.img != null)
-                    {
+                {
                         var cvname = Fileuploader.uploader("docs", model.cv);
                         var imgname = Fileuploader.uploader("images", model.img);
                         model.cvname = cvname;
@@ -80,12 +78,8 @@ namespace WebApplication5.Areas.De.Controllers
                         var data = mapper.Map<Employee>(model);
                         emp.create(data);
                         return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        ViewBag.warn = "Enter valid cv and image";
-                        return View(model);
-                    }
+                    
+                 
                 }
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 

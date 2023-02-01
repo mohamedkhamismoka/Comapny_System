@@ -34,6 +34,7 @@ namespace WebApplication5.BL.VM
 
 
         [Required(ErrorMessage = " Choose Project ")]
+        [Range(1,long.MaxValue,ErrorMessage ="please select valid project")]
         public int Project_id { get; set; }
 
 
@@ -42,11 +43,10 @@ namespace WebApplication5.BL.VM
 
 
         [Required(ErrorMessage = "Choose Department")]
+        [Range(1, long.MaxValue, ErrorMessage = "please select valid Department")]
         public int Dnum { get; set; }
 
 
-
-        public int? old_Project_id { get; set; }
 
     }
 }

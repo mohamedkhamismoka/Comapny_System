@@ -89,8 +89,12 @@ namespace WebApplication5.Areas.Project.Controllers
 
 
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-                ViewBag.valid = "Finish date must be greater than Start date";
-                    return View(proj);
+                if(!DateVaildator.validate(proj.Startdate, proj.Finishdate))
+                {
+                    ViewBag.valid = "Finish date must be greater than Start date";
+                }
+              
+                return View(proj);
                 
             }
             catch(Exception e)
