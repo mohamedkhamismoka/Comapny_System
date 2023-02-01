@@ -32,10 +32,12 @@ namespace WebApplication5.BL.VM
         [DataType(DataType.PhoneNumber, ErrorMessage = "Enter valid phone number")]
         public long phone { get; set; }
 
-        [Required(ErrorMessage ="Choose Department")]
+        [Required(ErrorMessage = "Choose Department")]
+     
+
         public int departmentid { get; set; }
 
-
+   
         public Department Department { get; set; }
 
         public string cvname { get; set; }
@@ -44,7 +46,7 @@ namespace WebApplication5.BL.VM
         public IFormFile cv { get; set; }
 
         public IFormFile img { get; set; }
-
+      
 
         public EmpVM()
         {

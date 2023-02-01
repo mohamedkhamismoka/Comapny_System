@@ -20,30 +20,29 @@ namespace WebApplication5.BL.VM
         public int hours { get; set; }
 
 
-
+   
         public Employee Employee { get; set; }
 
 
-        [Required(ErrorMessage = "Employee required")]
 
+        [Required(ErrorMessage = "Employee required")]
         public int Employee_id { get; set; }
 
 
-
+    
         public Project Project { get; set; }
 
-        [Required(ErrorMessage = " Choose Project ")]
 
-        [Range(1, long.MaxValue, ErrorMessage = "Choose Project")]
-        public int? Project_id { get; set; }
+        [Required(ErrorMessage = " Choose Project ")]
+        public int Project_id { get; set; }
 
 
 
         public Department dept { get; set; }
+
+
         [Required(ErrorMessage = "Choose Department")]
-        [Display(Name = "Department")]
-        [Range(1, long.MaxValue, ErrorMessage = "Choose Department")]
-        public int? Dnum { get; set; }
+        public int Dnum { get; set; }
 
 
 
