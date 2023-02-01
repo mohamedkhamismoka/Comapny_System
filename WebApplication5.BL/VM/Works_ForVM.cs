@@ -25,7 +25,7 @@ namespace WebApplication5.BL.VM
 
 
 
-        [Required(ErrorMessage = "Employee required")]
+        [Range(1, long.MaxValue, ErrorMessage = "please select valid Employee")]
         public int Employee_id { get; set; }
 
 

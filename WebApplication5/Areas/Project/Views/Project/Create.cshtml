@@ -30,7 +30,7 @@
     <div class="form-group">
         <label asp-for="Dnum">@SharedLocalizer["Department"]</label><br />
         <select asp-for="Dnum" class="form-control" asp-items="(SelectList)ViewBag.departmentlist">
-            <option>Choose Department</option>
+           <option value=0 selected>@SharedLocalizer["Choose Department"] </option>
         </select><br />
         <span asp-validation-for="Dnum" class="text-danger font-weight-bold"></span>
     </div>

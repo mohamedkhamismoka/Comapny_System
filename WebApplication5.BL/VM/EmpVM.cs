@@ -32,9 +32,9 @@ namespace WebApplication5.BL.VM
         [DataType(DataType.PhoneNumber, ErrorMessage = "Enter valid phone number")]
         public long phone { get; set; }
 
-        [Required(ErrorMessage = "Choose Department")]
-     
+      
 
+        [Range(1, long.MaxValue, ErrorMessage = "please select valid Department")]
         public int departmentid { get; set; }
 
    

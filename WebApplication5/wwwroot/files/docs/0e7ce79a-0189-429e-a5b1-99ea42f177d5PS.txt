@@ -1,0 +1,6 @@
+frequency array
+recursion
+braut force 
+even-odd
+prefix-suffix sum
+

@@ -34,14 +34,14 @@
         <div class="form-group">
             <label asp-for="Project_id">@SharedLocalizer["Project"]</label>
             <select asp-for="Project_id" class="form-control" asp-items="(SelectList)ViewBag.projectlist" disabled id="pro" style="display:inline-block">
-                <option>@SharedLocalizer["Choose Project"] </option>
+                <option value=0 selected>@SharedLocalizer["Choose Project"] </option>
             </select>
             <span asp-validation-for="Project_id" class="text-danger font-weight-bold"></span>
 
         </div>
         <div class="form-group">
             <label asp-for="Employee_id">@SharedLocalizer["Employee"]</label>
-            <input type="Text" class="form-control" id="name" asp-for="Employee_id" readonly>
+            <input type="Text" class="form-control" id="empname" asp-for="Employee_id" readonly>
             <span asp-validation-for="Employee_id" class="text-danger font-weight-bold"></span>
         </div>
 
@@ -76,7 +76,7 @@
 
             $("#dept").change(function () {
 
-
+                var emp=$("e#mpname").val();
 
                 var status = $("#dept option:selected").val();
 
@@ -88,7 +88,7 @@
                     $.ajax({
                         type: "POST",
                         url: '/Works/Works/GetData',
-                        data: { state: status },
+                        data: { state: status,empid:emp },
 
                         success: function (res) {
                             $.each(res, function (i, e) {

@@ -105,16 +105,18 @@ namespace WebApplication5.Areas.Works.Controllers
         [HttpPost]
         //get data from database by filter and send data to ajax
         //all this is used to filter showing of data
-        public IActionResult GetData(int state)
+        public IActionResult GetData(int state,int empid)
         {
             var data = dept.getbyid(state);
-          if( pro.getFilter(a => a.Dnum == data.id) == null || data==null)
+          if( data==null)
             {
                 return Json(null);
             }
             else
             {
-                var projects = pro.getFilter(a => a.Dnum == data.id);
+              
+                var res=work.getFilter(a => a.Employee_id != empid);
+                var projects = pro.getFilter(a => a.Dnum==state&& !res.Select(b=>b.Project_id).Contains(a.id));
                 return Json(projects);
             }
 
