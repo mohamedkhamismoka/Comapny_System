@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Authentication;
+﻿
 
-namespace WebApplication5.BL.VM
-{
+namespace WebApplication5.BL.VM;
+
    public class RegisterVM
     {
         [EmailAddress(ErrorMessage = "Invalid username type your mail")]
@@ -27,4 +21,4 @@ namespace WebApplication5.BL.VM
  
 
     }
-}
+

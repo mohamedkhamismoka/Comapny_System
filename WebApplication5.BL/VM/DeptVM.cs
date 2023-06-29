@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication5.DAL.Entity;
+﻿
+namespace WebApplication5.BL.VM;
 
-namespace WebApplication5.BL.VM
-{
    public  class DeptVM
     {
        
@@ -18,4 +11,4 @@ namespace WebApplication5.BL.VM
         public IEnumerable<Employee> employees { get; set; }
         public IEnumerable<Project> projects { get; set; }
     }
-}
+

@@ -1,17 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using WebApplication5.BL.helper;
-using WebApplication5.BL.VM;
-using WebApplication5.DAL.Extend;
-
+﻿
 namespace WebApplication5.Controllers
 {
     public class AccountController : Controller
@@ -64,8 +51,9 @@ namespace WebApplication5.Controllers
 
 
     
-        public async Task<IActionResult> Login(string ReturnUrl=null)
+        public async Task<IActionResult> Login(string? ReturnUrl =null)
         {
+            
             LoginVM log = new LoginVM
             {
                 ReturnUrl = ReturnUrl,

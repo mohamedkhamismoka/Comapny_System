@@ -1,16 +1,8 @@
-﻿using MimeKit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using MailKit.Net.Smtp;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
-using WebApplication5.BL.VM;
+﻿
 
-namespace WebApplication5.BL.helper
-{
+
+namespace WebApplication5.BL.helper;
+
     public class MailSender
     {//help sending mails to any comment
         public static async Task mail(MailVM comm)
@@ -57,5 +49,5 @@ namespace WebApplication5.BL.helper
 
         }
     }
-    }
+    
 

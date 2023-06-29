@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication5.BL.VM;
-using WebApplication5.DAL.Entity;
+﻿
 
-namespace WebApplication5.BL.interfaces
-{
+namespace WebApplication5.BL.interfaces;
+
   public  interface IWorks_For
     {
         IEnumerable<Works_For> get();
@@ -17,4 +11,4 @@ namespace WebApplication5.BL.interfaces
         void delete(Works_For work);
       
     }
-}
+

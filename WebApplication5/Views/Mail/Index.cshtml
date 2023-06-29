@@ -14,7 +14,7 @@
 </center>
 <form asp-controller="Mail" asp-action="send">
     <div class="form-group">
-        <label asp-for="mail">@SharedLocalizer["outlook mail address"]</label>
+        <label asp-for="mail">@SharedLocalizer["email address"]</label>
         <input type="email" class="form-control" asp-for="mail">
         <span asp-validation-for="mail" class="text-danger font-weight-bold"></span>
     </div>

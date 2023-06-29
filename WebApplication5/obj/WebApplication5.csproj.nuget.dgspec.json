@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\WebApplication5.csproj": {}
+    "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5\\WebApplication5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj": {
+    "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj",
         "projectName": "WebApplication5.BL",
-        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -22,18 +22,18 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {
-                "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj"
+              "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {
+                "projectPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj"
               }
             }
           }
@@ -45,8 +45,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -63,6 +63,38 @@
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
             },
             "MimeKit": {
               "target": "Package",
@@ -92,14 +124,14 @@
         }
       }
     },
-    "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {
+    "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
         "projectName": "WebApplication5.DAL",
-        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.DAL\\WebApplication5.DAL.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.DAL\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -110,15 +142,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -129,16 +161,20 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.12, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
@@ -146,17 +182,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.11, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.11, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.11, )"
+              "version": "[6.0.10, )"
             }
           },
           "imports": [
@@ -178,14 +214,14 @@
         }
       }
     },
-    "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\WebApplication5.csproj": {
+    "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5\\WebApplication5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\WebApplication5.csproj",
+        "projectUniqueName": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5\\WebApplication5.csproj",
         "projectName": "WebApplication5",
-        "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\WebApplication5.csproj",
+        "projectPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5\\WebApplication5.csproj",
         "packagesPath": "C:\\Users\\EL-Masria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\obj\\",
+        "outputPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -196,18 +232,18 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj": {
-                "projectPath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj"
+              "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj": {
+                "projectPath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj"
               }
             }
           }
@@ -219,8 +255,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -228,7 +264,7 @@
             },
             "Microsoft.AspNetCore.Authentication.Facebook": {
               "target": "Package",
-              "version": "[5.0.6, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
@@ -240,17 +276,31 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[5.0.10, )"
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.11, )"
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

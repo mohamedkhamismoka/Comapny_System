@@ -1,16 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿
+namespace WebApplication5.DAL.Entity;
 
-namespace WebApplication5.DAL.Entity
-{
    public class Employee
     {
         [Key]
@@ -36,5 +26,5 @@ namespace WebApplication5.DAL.Entity
 
         public IEnumerable<Works_For> work { get; set; }
 
-    }
+    
 }

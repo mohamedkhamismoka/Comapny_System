@@ -1,17 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication5.DAL.Entity;
-using WebApplication5.DAL.Extend;
+﻿
 
-namespace WebApplication5.DAL.Database
-{
+namespace WebApplication5.DAL.Database;
+
    public class DataContext:IdentityDbContext<ApplicationUser>
     {
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -40,5 +30,5 @@ namespace WebApplication5.DAL.Database
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<Works_For> works { get; set; }
-    }
+    
 }

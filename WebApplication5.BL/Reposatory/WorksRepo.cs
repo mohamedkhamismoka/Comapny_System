@@ -1,17 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication5.BL.interfaces;
-using WebApplication5.BL.VM;
-using WebApplication5.DAL.Database;
-using WebApplication5.DAL.Entity;
+﻿
 
-namespace WebApplication5.BL.Reposatory
-{
+
+namespace WebApplication5.BL.Reposatory;
+
     public class WorksRepo : IWorks_For
     {
         readonly private DataContext d;
@@ -54,22 +45,8 @@ namespace WebApplication5.BL.Reposatory
             return data;
         }
 
-        //public void update(Works_For work, int id,int oldproject) {
-        //    delete(work);
-        //    var commandText2 = "INSERT into works values (@proid, @empid, @hours,@Dnum)";
-        //    var proid = new SqlParameter("@proid", work.Project_id);
-        //    var empid = new SqlParameter("@empid", work.Employee_id);
-        //    var hours= new SqlParameter("@hours", work.hours);
-        //    var dnum= new SqlParameter("@Dnum", work.Dnum);
-       
-          
-         
-        //    d.Database.ExecuteSqlRaw(commandText2, proid,empid,hours,dnum);
-
-
-        //}
-
+  
      
 
     }
-}
+

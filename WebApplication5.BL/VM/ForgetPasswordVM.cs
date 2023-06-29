@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
+﻿
 
-namespace WebApplication5.BL.VM
-{
+namespace WebApplication5.BL.VM;
+
    public class ForgetPasswordVM
     {
         [EmailAddress(ErrorMessage = "Invalid Email")]
@@ -14,4 +9,4 @@ namespace WebApplication5.BL.VM
 
         public string mail { get; set; }
     }
-}
+

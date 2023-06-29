@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication5.BL.interfaces;
-using WebApplication5.DAL.Database;
+
 using WebApplication5.DAL.Entity;
 
-namespace WebApplication5.BL.Reposatory
-{
+namespace WebApplication5.BL.Reposatory;
+
     public class DepartmentRepo : IDepartment
     {
        readonly private DataContext d;
@@ -50,4 +46,4 @@ namespace WebApplication5.BL.Reposatory
             d.SaveChanges();
         }
     }
-}
+

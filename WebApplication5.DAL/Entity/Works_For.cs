@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace WebApplication5.DAL.Entity
-{
+namespace WebApplication5.DAL.Entity;
+
     public class Works_For {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
    
@@ -24,5 +18,5 @@ namespace WebApplication5.DAL.Entity
         public Project Project { get; set; }
         
         public int Dnum { get; set; }
-    }
+    
 }

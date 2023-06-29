@@ -3,4 +3,10 @@
         margin-left:217px;
 text-align:center;
     }
+
+    .no-footer .row{
+        display:flex;
+        flex-direction:column
+    }
+  
 }

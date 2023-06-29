@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace WebApplication5.BL.VM
-{
+
+namespace WebApplication5.BL.VM;
+
    public class MailVM
     {
         [Required(ErrorMessage ="Mail Address is Required")]
@@ -16,4 +12,4 @@ namespace WebApplication5.BL.VM
         public string body { get; set; }
   
     }
-}
+

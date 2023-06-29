@@ -1,16 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WebApplication5.BL.Reposatory;
-using WebApplication5.DAL.Database;
-using WebApplication5.DAL.Entity;
-using WebApplication5.BL.interfaces;
-using AutoMapper;
-using WebApplication5.BL.VM;
-using WebApplication5.BL.helper;
-using Microsoft.AspNetCore.Authorization;
+﻿
 
 namespace WebApplication5.Areas.De.Controllers
 {

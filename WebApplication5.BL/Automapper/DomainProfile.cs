@@ -1,14 +1,9 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication5.BL.VM;
-using WebApplication5.DAL.Entity;
+﻿
 
-namespace WebApplication5.BL.Automapper
-{
+
+
+namespace WebApplication5.BL.Automapper;
+
   public  class DomainProfile:Profile
     {
         public DomainProfile()
@@ -23,5 +18,5 @@ namespace WebApplication5.BL.Automapper
             CreateMap<Works_ForVM, Works_For>();
         }
        
-    }
+    
 }

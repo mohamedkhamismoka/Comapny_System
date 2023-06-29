@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace WebApplication5.BL.helper
-{
+
+namespace WebApplication5.BL.helper;
+
     public static class Fileuploader
     {//this class help to uplad images and cv of each employee
         public static string uploader(string foldername, IFormFile myfile)
@@ -45,4 +40,4 @@ namespace WebApplication5.BL.helper
             }
         }
     }
-}
+

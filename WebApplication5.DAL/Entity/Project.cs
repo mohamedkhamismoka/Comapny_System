@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+namespace WebApplication5.DAL.Entity;
 
-namespace WebApplication5.DAL.Entity
-{
-    public class Project
-    {
+    public class Project { 
+    
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id{ get; set; }
@@ -29,5 +22,5 @@ namespace WebApplication5.DAL.Entity
         public Department Department { get; set; }
         public string state { get; set; }
         public IEnumerable<Works_For> work { get; set; }
-    }
+    
 }

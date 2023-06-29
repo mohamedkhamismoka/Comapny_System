@@ -100,7 +100,7 @@
             </ul>
 
             <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto  x">
+            <ul class="navbar-nav ">
                 <!-- Navbar Search -->
                 <li>
                     <div class="navbar-search-block y">
@@ -230,7 +230,7 @@
                         <a asp-area="" asp-controller="Language" asp-action="SetLanguage" asp-route-culture="ar-EG" asp-route-returnUrl="@(Context.Request.Path + Context.Request.QueryString)">
 
                             <img src="~/images/Egypt.jpg" width="35" height="20" class="mt-1" />
-                            <span style="vertical-align:middle">Ar</span>
+                            <span style="vertical-align:middle"></span>
                         </a>
                     }
                 </li>
@@ -445,10 +445,13 @@
                     if ($(".hidd").css("display") == "none") {
                         $(".hidd").css("display", "inline-block")
                     } else {
-                        $(".hidd").css("display", "none")
+                       
+                        $(".hidd").css("display", "none");
+
                     }
                 })
-                $(".y").css("dispaly", "none")
+                $(".y").css("dispaly", "none");
+
             })
         </script>
     }
