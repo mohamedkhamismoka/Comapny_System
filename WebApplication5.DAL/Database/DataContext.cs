@@ -19,20 +19,18 @@ namespace WebApplication5.DAL.Database;
         //make composite primary key for works for
 
         builder.Entity<Works_For>().HasKey(a => new { a.employeeId, a.projectId });
+  
+
         builder.Entity<Employee>()
-          .HasMany(p => p.work)
-          .WithOne(t => t.Employee)
-          .HasForeignKey(t => t.employeeId)
-          .OnDelete(DeleteBehavior.ClientSetNull);
+      .HasMany(p => p.work)
+      .WithOne(t => t.Employee)
+      .OnDelete(DeleteBehavior.Restrict);
 
 
         builder.Entity<Project>()
-       .HasMany(p => p.work)
-       .WithOne(t => t.Project)
-       .HasForeignKey(v=>v.employeeId)
-       .OnDelete(DeleteBehavior.ClientSetNull);
-
-
+     .HasMany(p => p.work)
+     .WithOne(t => t.Project)
+     .OnDelete(DeleteBehavior.Restrict);
 
         //The entity type 'IdentityUserRole<string>' requires a primary key to be defined 
         builder.Entity<IdentityUserLogin<string>>().HasKey(a => a.ProviderKey);

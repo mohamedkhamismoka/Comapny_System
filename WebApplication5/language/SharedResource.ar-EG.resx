@@ -148,13 +148,13 @@
     <value>هل لنت متاكد من حذف الموظف</value>
   </data>
   <data name="Are you sure you want to Delete Department?" xml:space="preserve">
-    <value>هل انت متاكد من حذف ذلك القسم</value>
+    <value>هل انت متاكد من حذف ذلك القسم؟</value>
   </data>
   <data name="Are you sure you want to Delete Employee?" xml:space="preserve">
     <value>هل انت متاكد من حذف الموظف؟</value>
   </data>
-  <data name="Are you sure you want to Delete Project" xml:space="preserve">
-    <value>هل انت متاكد من حذف القسم ؟</value>
+  <data name="Are you sure you want to Delete Project?" xml:space="preserve">
+    <value>هل انت متاكد من حذف المشروع؟</value>
   </data>
   <data name="Assign" xml:space="preserve">
     <value>الحاق</value>
@@ -319,7 +319,7 @@
     <value>تاريخ التعيين</value>
   </data>
   <data name="hiredate is required" xml:space="preserve">
-    <value>تلريخ التعيين مطلوب</value>
+    <value>تاريخ التعيين مطلوب</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>الصفحه الرئيسيه</value>

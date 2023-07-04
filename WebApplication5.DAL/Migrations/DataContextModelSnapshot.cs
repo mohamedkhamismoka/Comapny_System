@@ -231,10 +231,10 @@ namespace WebApplication5.DAL.Migrations
 
             modelBuilder.Entity("WebApplication5.DAL.Entity.Works_For", b =>
                 {
-                    b.Property<int>("employeeId")
+                    b.Property<int?>("employeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("projectId")
+                    b.Property<int?>("projectId")
                         .HasColumnType("int");
 
                     b.Property<int>("Dnum")
@@ -250,6 +250,8 @@ namespace WebApplication5.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.HasKey("employeeId", "projectId");
+
+                    b.HasIndex("projectId");
 
                     b.ToTable("works");
                 });
@@ -336,11 +338,13 @@ namespace WebApplication5.DAL.Migrations
                     b.HasOne("WebApplication5.DAL.Entity.Employee", "Employee")
                         .WithMany("work")
                         .HasForeignKey("employeeId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("WebApplication5.DAL.Entity.Project", "Project")
                         .WithMany("work")
-                        .HasForeignKey("employeeId")
+                        .HasForeignKey("projectId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Employee");

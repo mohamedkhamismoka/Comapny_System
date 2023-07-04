@@ -201,12 +201,14 @@ namespace WebApplication5.DAL.Migrations
                         name: "FK_works_employees_employeeId",
                         column: x => x.employeeId,
                         principalTable: "employees",
-                        principalColumn: "id");
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_works_Projects_employeeId",
-                        column: x => x.employeeId,
+                        name: "FK_works_Projects_projectId",
+                        column: x => x.projectId,
                         principalTable: "Projects",
-                        principalColumn: "id");
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -218,6 +220,11 @@ namespace WebApplication5.DAL.Migrations
                 name: "IX_Projects_Dnum",
                 table: "Projects",
                 column: "Dnum");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_works_projectId",
+                table: "works",
+                column: "projectId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

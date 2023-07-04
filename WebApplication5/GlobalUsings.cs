@@ -17,3 +17,25 @@ global using WebApplication5.DAL.Extend;
 global using WebApplication5.DAL.Entity;
 
 global using AutoMapper;
+
+global using Microsoft.AspNetCore.Authentication;
+global using Microsoft.AspNetCore.Authentication.Cookies;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.HttpsPolicy;
+global using Microsoft.AspNetCore.Mvc.Razor;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Newtonsoft.Json.Serialization;
+global using System;
+global using System.Collections.Generic;
+global using System.Globalization;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using WebApplication5.BL.Automapper;
+global using WebApplication5.BL.Reposatory;
+global using WebApplication5.DAL.Database;
+

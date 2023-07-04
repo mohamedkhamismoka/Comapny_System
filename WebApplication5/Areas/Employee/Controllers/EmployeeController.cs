@@ -134,7 +134,7 @@ namespace WebApplication5.Areas.De.Controllers
                      
                     }
 
-                    if (y == 0 && j > 0)
+                    if (y == 0 && j >= 0)
                     {
                         var data = mapper.Map<Employee>(empo);
                         data.imgname = empo.imgname;

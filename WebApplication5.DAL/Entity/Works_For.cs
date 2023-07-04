@@ -6,10 +6,10 @@ namespace WebApplication5.DAL.Entity;
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
    
         public int id { get; set; }
-        public int projectId { get; set; }
+        public int ?projectId { get; set; }
 
     
-        public int employeeId { get; set; }
+        public int? employeeId { get; set; }
         public int hours { get; set; }
 
         public virtual Employee Employee { get; set; }

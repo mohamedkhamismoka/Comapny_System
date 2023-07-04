@@ -1,4 +1,4 @@
-﻿@model int[]
+﻿
 @{
     ViewBag.title = "Home";
 }
@@ -30,7 +30,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>@Model[0]</h3>
+                            <h3> <h3 style="margin-bottom:0">@ViewBag.deptCount</h3></h3>
 
                             <p>@SharedLocalizer["Departments"]</p>
                         </div>
@@ -60,7 +60,7 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>@Model[1]</h3>
+                            <h3 style="margin-bottom:0">@ViewBag.empCount</h3>
 
                             <p>@SharedLocalizer["Employees"]</p>
                         </div>

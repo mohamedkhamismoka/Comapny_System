@@ -24123,4 +24123,14 @@ a.text-muted:hover {
 .link-black:hover, .link-black:focus {
   color: #e6e8ea;
 }
-/*# sourceMappingURL=adminlte.css.map */
+
+@media screen and (max-width:997px) {
+    aside {
+        display: none;
+    }
+
+    .co {
+        float: left
+    }
+}
+    /*# sourceMappingURL=adminlte.css.map */

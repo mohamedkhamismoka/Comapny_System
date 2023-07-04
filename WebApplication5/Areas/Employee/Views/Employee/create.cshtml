@@ -11,7 +11,7 @@
  <link href="~/css/Emp.css"  rel="stylesheet"/>
 }
 <center>
-    <h1> @SharedLocalizer["Create Employee"]</h1>
+    <h1 style="color:red"> @SharedLocalizer["Create Employee"]</h1>
 </center>
 <form asp-area="Employee" asp-controller="Employee" asp-action="create" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -39,7 +39,7 @@
         <select asp-for="departmentid" class="form-control"asp-items="(SelectList)ViewBag.departmentlist">
             <option value=0 selected>@SharedLocalizer["Choose Department"] </option>
         </select><br />
-        <span asp-validation-for="departmentid" class="text-danger font-weight-bold"></span>
+        <span asp-validation-for="departmentid" class="text-danger font-weight-bold " style="display:block;margin-top:-17px"></span>
     </div>
     <div class="form-group">
         <label asp-for="phone">@SharedLocalizer["phone"]</label>

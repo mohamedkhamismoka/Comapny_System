@@ -20,8 +20,9 @@ namespace WebApplication5.Controllers
         public IActionResult Index()
         {
 
-            int [] arra = { emp.getbyfilter().Count(),dept.get().Count() };
-            return View(arra);
+           ViewBag.empCount= emp.getbyfilter().Count();
+            ViewBag.deptCount = dept.get().Count(); ;
+            return View();
         }
 
         public IActionResult Privacy()

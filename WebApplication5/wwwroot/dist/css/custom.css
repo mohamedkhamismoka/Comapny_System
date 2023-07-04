@@ -2,7 +2,7 @@
     direction: rtl !important;
 }
 .layout-fixed .main-sidebar {
-    right: 0;
+    right: -3px;
 }
 .brand-image {
     float: right;
@@ -60,5 +60,15 @@
 
     .sidebar-open .main-sidebar, .sidebar-open .main-sidebar::before {
         margin-right: 0;
+    }
+}
+
+@media screen and (max-width:997px) {
+    aside {
+        display: none;
+    }
+
+    .co {
+        float: left
     }
 }
