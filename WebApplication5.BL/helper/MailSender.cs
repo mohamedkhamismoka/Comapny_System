@@ -13,7 +13,7 @@ namespace WebApplication5.BL.helper;
                 var email = new MimeMessage()
                 {
                     Sender = MailboxAddress.Parse("atiffahmykhamis@gmail.com"),
-                    Subject = "message from College system from " + comm.mail
+                    Subject = "message from comapny system" + ""
 
 
 
