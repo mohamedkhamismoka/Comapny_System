@@ -21,6 +21,6 @@ namespace WebApplication5.DAL.Entity;
         [ForeignKey("Dnum")]
         public Department Department { get; set; }
         public string state { get; set; }
-        public IEnumerable<Works_For> work { get; set; }
+        public IEnumerable<Works_For>? work { get; set; }
     
 }

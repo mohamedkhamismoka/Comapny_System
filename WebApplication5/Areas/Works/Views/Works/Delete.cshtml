@@ -32,19 +32,19 @@
         <h1 style="text-align:center;color:red;margin-top:30px;margin-bottom:20px">@SharedLocalizer["Delete"]</h1>
 
         <form style="display:inline-block;margin-left:10px" asp-controller="Works" asp-action="Delete" method="post">
-            <input type="hidden" asp-for="Project_id" readonly />
-            <input type="hidden" asp-for="Employee_id" readonly />
+            <input type="hidden" asp-for="projectId" readonly />
+            <input type="hidden" asp-for="employeeId" readonly />
             <div class="form-group">
                 <label > @SharedLocalizer["Project"]</label><br />
 
                 <input type="text" class="form-control" asp-for="Project.name" disabled/><br />
 
-                <span asp-validation-for="Project_id"  class="text-danger font-weight-bold"></span>
+                <span asp-validation-for="projectId"  class="text-danger font-weight-bold"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee_id" > @SharedLocalizer["Employee"]</label>
+                <label asp-for="employeeId" > @SharedLocalizer["Employee"]</label>
                 <input type="Text" class="form-control" asp-for="Employee.name" disabled>
-                <span asp-validation-for="Employee_id" class="text-danger font-weight-bold"></span>
+                <span asp-validation-for="employeeId" class="text-danger font-weight-bold"></span>
             </div>
 
             <div class="form-group">

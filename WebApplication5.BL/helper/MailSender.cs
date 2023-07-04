@@ -18,7 +18,7 @@ namespace WebApplication5.BL.helper;
 
 
                 };
-                email.To.Add(MailboxAddress.Parse("mostafaatif824@gmail.com"));
+                email.To.Add(MailboxAddress.Parse(comm.mail));
                 var builder = new BodyBuilder();
 
 
@@ -33,7 +33,7 @@ namespace WebApplication5.BL.helper;
                 using (var smtp = new SmtpClient())
                 {
                     smtp.Connect("smtp.gmail.com", 587, false);
-                    smtp.Authenticate("atiffahmykhamis@gmail.com", "esdialkwijqhgter");
+                    smtp.Authenticate("atiffahmykhamis@gmail.com", "dxtqjlfupztfmyli");
                     await smtp.SendAsync(email);
                     smtp.Disconnect(true);
                 }

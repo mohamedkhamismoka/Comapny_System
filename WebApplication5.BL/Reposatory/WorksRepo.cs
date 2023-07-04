@@ -45,8 +45,15 @@ namespace WebApplication5.BL.Reposatory;
             return data;
         }
 
-  
-     
-
+    public void deleteEmployee(int id)
+    { var data = d.works.Where(a => a.employeeId == id);
+        d.works.RemoveRange(data);
     }
+
+    public void deleteProject(int id)
+    {
+        var data = d.works.Where(a => a.projectId == id);
+        d.works.RemoveRange(data);
+    }
+}
 

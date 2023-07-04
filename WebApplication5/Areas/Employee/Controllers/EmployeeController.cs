@@ -97,37 +97,76 @@ namespace WebApplication5.Areas.De.Controllers
 
         [HttpPost]
         //update employee and empo reperesnt new values 
-        public IActionResult update(EmpVM empo, string img, string cv)
+        public IActionResult update(EmpVM empo, IFormFile? empnewimg, IFormFile? empnewcv)
         {
             try
             {
-                if (ModelState.IsValid)
+                
+                if (empnewimg != null)
                 {
-                    if (empo.cv != null && empo.img != null)
+                    var imgname = Fileuploader.uploader("images", empnewimg);
+                    empo.img= empnewimg;
+                    empo.imgname = imgname;
+                }
+                if (empnewcv != null)
+                {
+                    var cvname = Fileuploader.uploader("images", empnewcv);
+                    empo.cv = empnewcv;
+                    empo.cvname = cvname;
+                }
+                if (!ModelState.IsValid )
+                {
+                    int j = 0 ;
+                    int y = 0;
+                    for (int i = 0; i < ModelState.Root.Children.Count; i++)
                     {
-                        var cvname = Fileuploader.uploader("docs", empo.cv);
-                        var imgname = Fileuploader.uploader("images", empo.img);
-                        empo.cvname = cvname;
-                        empo.imgname = imgname;
+                        if ((ModelState.Root.Children[i].ValidationState == ModelValidationState.Invalid && i==0)||( ModelState.Root.Children[i].ValidationState == ModelValidationState.Invalid&&i==2))
+                        {
+                            j++;
+                        }
+                        else
+                        {
+                            if(ModelState.Root.Children[i].ValidationState == ModelValidationState.Invalid)
+                            {
+                                y++;
+                            }
+                        }
+                     
+                    }
+
+                    if (y == 0 && j > 0)
+                    {
                         var data = mapper.Map<Employee>(empo);
+                        data.imgname = empo.imgname;
+                        data.cvname = empo.cvname;
+
+
                         emp.update(data);
                         return RedirectToAction("Index");
                     }
                     else
                     {
+                        ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
-                        var data = mapper.Map<Employee>(empo);
-                        data.imgname = img;
-                        data.cvname = cv;
-                        emp.update(data);
-                        return RedirectToAction("Index");
+                        return View(empo);
                     }
+                
+
+
 
 
                 }
-                ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
+              else
+                {
+                    var data = mapper.Map<Employee>(empo);
+                    data.imgname = empo.imgname;
+                    data.cvname = empo.cvname;
 
-                return View(empo);
+
+                    emp.update(data);
+                    return RedirectToAction("Index");
+                }
+               
 
             }
             catch (Exception e)
@@ -153,6 +192,7 @@ namespace WebApplication5.Areas.De.Controllers
         //delete employee
         public IActionResult ConfirmDelete(EmpVM empo)
         {
+            work.deleteEmployee(empo.id);
 
             var data = mapper.Map<Employee>(empo);
             emp.delete(data);
@@ -172,7 +212,7 @@ namespace WebApplication5.Areas.De.Controllers
             var data = emp.getbyid(id);
             var model = mapper.Map<EmpVM>(data);
 
-            ViewBag.ex = work.getFilter(a => a.Employee_id == model.id);
+            ViewBag.ex = work.getFilter(a => a.employeeId == model.id);
             foreach (var item in ViewBag.ex)
             {
                 count++;
@@ -204,6 +244,14 @@ namespace WebApplication5.Areas.De.Controllers
                 return Json(model);
             }
 
+        }
+
+        public IActionResult download(string cvname)
+        {
+            var path = Path.Combine(
+               Directory.GetCurrentDirectory(), "wwwroot/files/docs/", cvname);
+            byte[] fileBytes = System.IO.File.ReadAllBytes(path);
+            return File(fileBytes, "application/x-msdownload", cvname);
         }
 
 

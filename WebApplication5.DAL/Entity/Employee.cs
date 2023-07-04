@@ -24,7 +24,7 @@ namespace WebApplication5.DAL.Entity;
         public string cvname { get; set; }
         public string imgname { get; set; }
 
-        public IEnumerable<Works_For> work { get; set; }
+        public IEnumerable<Works_For>? work { get; set; }
 
     
 }

@@ -55,13 +55,13 @@
                             <div class="body">
                                 <div class="table-responsive">
 
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable" width=600>
                                         <thead>
 
                                             <tr>
 
                                                 <th>@SharedLocalizer["Name"]</th>
-                                                <th>@SharedLocalizer["Status"]</th>
+                                              
                                                 <th>@SharedLocalizer["department"]</th>
                                                 <th>@SharedLocalizer["Photo"]</th>
 
@@ -79,22 +79,13 @@
                                             <tr>
                                                
                                                 <td style="font-size:17px">@item.name</td>
-                                                <td>
-                                                            @if (item.isActive)
-                                                            {
-                                                                <p>@SharedLocalizer["Active"]</p>
-                                                                                                        }
-                                                            else
-                                                            {
-                                                               <p>@SharedLocalizer["Disabled"]</p> 
-                                                            }
-                                                        </td>
+                                            
                                                 <td>@item.Department.name</td>
                                                 <td><img src="~/files/images/@item.imgname" width="50" height="50" asp-append-version="true"></td>
                                                 <td><a class="btn btn-primary" asp-action="Details" asp-route-id="@item.id">@SharedLocalizer["Details"]</a></td>
                                                 <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.id">@SharedLocalizer["Update"]</a></td>
                                                 <td><a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.id"> @SharedLocalizer["Delete"]</a></td>
-                                                <td><a class="btn btn-warning" style="color:black" href="/Works/Works/Create/?Employee_id=@item.id"><i class="fas fa-plus" data-toggle="tooltip" title="@SharedLocalizer["Add To Project"]"></i></a></td>
+                                                <td><a class="btn btn-warning" style="color:black" asp-area="Works" asp-controller="Works" asp-action="Create" asp-route-Employeeid="@item.id"><i class="fas fa-plus" data-toggle="tooltip" title="@SharedLocalizer["Add To Project"]"></i></a></td>
 
                                             </tr>
                                             }

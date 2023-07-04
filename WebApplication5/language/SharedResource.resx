@@ -153,6 +153,12 @@
   <data name="Are you sure you want to Delete Department?" xml:space="preserve">
     <value>Are you sure you want to Delete Department?</value>
   </data>
+  <data name="Are you sure you want to Delete Employee?" xml:space="preserve">
+    <value>Are you sure you want to Delete Employee?</value>
+  </data>
+  <data name="Are you sure you want to Delete Project?" xml:space="preserve">
+    <value>Are you sure you want to Delete Project?</value>
+  </data>
   <data name="Assign" xml:space="preserve">
     <value>Assign</value>
   </data>
@@ -198,6 +204,9 @@
   <data name="Create" xml:space="preserve">
     <value>Create</value>
   </data>
+  <data name="create department" xml:space="preserve">
+    <value>Create Department</value>
+  </data>
   <data name="Create new Employee" xml:space="preserve">
     <value>Create new Employee</value>
   </data>
@@ -206,6 +215,9 @@
   </data>
   <data name="CV" xml:space="preserve">
     <value>CV</value>
+  </data>
+  <data name="CV is required" xml:space="preserve">
+    <value>CV is required</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Dashboard</value>
@@ -288,14 +300,23 @@
   <data name="Finish Date" xml:space="preserve">
     <value>Finish Date</value>
   </data>
+  <data name="Finish date is required" xml:space="preserve">
+    <value>Finish date is required</value>
+  </data>
+  <data name="Finish date must be greater than Start date" xml:space="preserve">
+    <value>Finish date must be greater than Start date</value>
+  </data>
   <data name="Finishdate is required" xml:space="preserve">
-    <value>Finishdate is required</value>
+    <value>Finish date is required</value>
   </data>
   <data name="Finished" xml:space="preserve">
     <value>Finished</value>
   </data>
   <data name="Hiredate" xml:space="preserve">
     <value>Hiredate</value>
+  </data>
+  <data name="hiredate is required" xml:space="preserve">
+    <value>hiredate is required</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
@@ -308,6 +329,9 @@
   </data>
   <data name="ID" xml:space="preserve">
     <value>ID</value>
+  </data>
+  <data name="Image is required" xml:space="preserve">
+    <value>Image is required</value>
   </data>
   <data name="IsActive" xml:space="preserve">
     <value>IsActive</value>
@@ -342,6 +366,9 @@
   <data name="Name is required" xml:space="preserve">
     <value>Name is required</value>
   </data>
+  <data name="Not Assigned to project yet" xml:space="preserve">
+    <value>Not Assigned to project yet</value>
+  </data>
   <data name="Not started Yet" xml:space="preserve">
     <value>Not started Yet</value>
   </data>
@@ -354,8 +381,14 @@
   <data name="phone" xml:space="preserve">
     <value>phone</value>
   </data>
-  <data name="Photo" xml:space="preserve">
+  <data name="phone is required" xml:space="preserve">
+    <value />
+  </data>
+  <data name="photo" xml:space="preserve">
     <value>Photo</value>
+  </data>
+  <data name="please select valid Department" xml:space="preserve">
+    <value>please select valid department</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>Project</value>
@@ -399,8 +432,14 @@
   <data name="Start Date" xml:space="preserve">
     <value>Start Date</value>
   </data>
+  <data name="start date is required" xml:space="preserve">
+    <value>start date is required</value>
+  </data>
   <data name="startdate is required" xml:space="preserve">
-    <value>startdate is required</value>
+    <value>start date is required</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
   <data name="Title" xml:space="preserve">
     <value>Title</value>
@@ -425,5 +464,8 @@
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
+  </data>
+  <data name="Works In" xml:space="preserve">
+    <value>Works In</value>
   </data>
 </root>

@@ -13,25 +13,25 @@ namespace WebApplication5.BL.VM;
 
 
    
-        public Employee Employee { get; set; }
+        public Employee? Employee { get; set; }
 
 
 
         [Range(1, long.MaxValue, ErrorMessage = "please select valid Employee")]
-        public int Employee_id { get; set; }
+        public int employeeId { get; set; }
 
 
     
-        public Project Project { get; set; }
+        public Project? Project { get; set; }
 
 
         [Required(ErrorMessage = " Choose Project ")]
         [Range(1,long.MaxValue,ErrorMessage ="please select valid project")]
-        public int Project_id { get; set; }
+        public int projectId { get; set; }
 
 
 
-        public Department dept { get; set; }
+        public Department? dept { get; set; }
 
 
         [Required(ErrorMessage = "Choose Department")]

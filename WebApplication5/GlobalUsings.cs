@@ -6,7 +6,7 @@ global using Microsoft.AspNetCore.Authorization;
 global using  Microsoft.Extensions.Localization;
 global using WebApplication5.language;
 global using System.Diagnostics;
-
+global using Microsoft.AspNetCore.Mvc.ModelBinding;
 global using WebApplication5.BL.interfaces;
 global using Microsoft.AspNetCore.Localization;
 global using WebApplication5.Models;

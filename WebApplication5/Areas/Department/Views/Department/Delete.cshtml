@@ -1,18 +1,39 @@
-﻿@model DeptVM
+﻿@{
+    var Culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+     
+}
+@model DeptVM
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
- 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link  rel="stylesheet" href="~/css/Dept.css"/>
+    <title>delete</title>
+     <link  rel="stylesheet" href="~/css/Dept.css"/>
+
+     @if (Culture == "en-US")
+    {
+
+      
+        <style>
+            body {
+             text-align:left;
+            }
+        </style>
+    }
+    else
+    {
+ <style>
+   body {
+             text-align:right;
+    }
+     </style>
+    }
 </head>
-<body>
+<body dir="@SharedLocalizer["ltr"]" >
     <center>
         <h1 style="color:red">@SharedLocalizer["Delete Department"]</h1>
-        <h6>@ViewBag.x</h6>
+        <h4 style="color:red;margin:10px 0">@ViewBag.x</h4>
     </center>
 
     <form class="forma" asp-area="Department" asp-controller="Department" asp-action="Delete" method="post">

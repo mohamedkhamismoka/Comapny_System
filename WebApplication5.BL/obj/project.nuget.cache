@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Sfz/ILUMz3RS5+QL1W0qYk2zwlIPRfenbJTLFuNAWet5VAHqgGFVjB3HK1wsBHSrAqegUVzS/ABXd/CXcqUObQ==",
+  "dgSpecHash": "I3tgPOFmBcL4jl0iYYMaMBK8s5yZo3bx7jjWxS7l+BUXuLl80PLc2Iudh0odT7fnrmYtrsG+jfYx9MrqJdwhFA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EL-Masria\\Desktop\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj",
+  "projectFilePath": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5.BL\\WebApplication5.BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\EL-Masria\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

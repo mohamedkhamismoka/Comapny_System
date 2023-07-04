@@ -9,6 +9,8 @@ namespace WebApplication5.BL.interfaces;
         void create(Works_For work);
         //void update(Works_For work, int id, int oldproject);
         void delete(Works_For work);
+    void deleteEmployee(int id);
+    void deleteProject(int id);
       
     }
 

@@ -13,15 +13,17 @@ namespace WebApplication5.Areas.Project.Controllers
         private readonly IProject pro;
         private readonly IMapper mapper;
         private readonly IStringLocalizer<SharedResource> SharedLocalizer;
+        private readonly IWorks_For work;
 
 
         //for dependency injection
-        public ProjectController(IDepartment Dept,IProject pro,IMapper mapper, IStringLocalizer<SharedResource> SharedLocalizer)
+        public ProjectController(IDepartment Dept,IProject pro,IMapper mapper, IStringLocalizer<SharedResource> SharedLocalizer,IWorks_For work)
         {
             dept = Dept;
             this.pro = pro;
             this.mapper = mapper;
             this.SharedLocalizer = SharedLocalizer;
+            this.work = work;
         }
 
 
@@ -76,7 +78,7 @@ namespace WebApplication5.Areas.Project.Controllers
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
                 if(!DateVaildator.validate(proj.Startdate, proj.Finishdate))
                 {
-                    ViewBag.valid = "Finish date must be greater than Start date";
+                    ViewBag.valid = SharedLocalizer["Finish date must be greater than Start date"];
                 }
               
                 return View(proj);
@@ -117,7 +119,7 @@ namespace WebApplication5.Areas.Project.Controllers
                     pro.update(data);
                     return RedirectToAction("Index")
 ;                }
-                ViewBag.valid = "Finish date must be greater than Start date";
+                ViewBag.valid = SharedLocalizer["Finish date must be greater than Start date"];
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
                 return View(proj);
             }
@@ -142,8 +144,8 @@ namespace WebApplication5.Areas.Project.Controllers
         //delete proj from database
         public IActionResult Delete(ProjectVM proj)
         {
-           
-                    var data = mapper.Map<WebApplication5.DAL.Entity.Project>(proj);
+            work.deleteProject(proj.id);
+            var data = mapper.Map<WebApplication5.DAL.Entity.Project>(proj);
                 pro.delete(data);
                     return RedirectToAction("Index")
 ;

@@ -22,8 +22,8 @@
     <h1>@SharedLocalizer["update Employee"]</h1>
 </center>
 <form asp-area="Employee" asp-controller="Employee" asp-action="update" enctype="multipart/form-data">
-    <input type="hidden" asp-for="cvname" name="cv" value="@Model.cvname" />
-    <input type="hidden" asp-for="imgname" value="@Model.imgname" name="img" />
+    <input type="hidden" asp-for="cvname"  value="@Model.cvname" />
+    <input type="hidden" asp-for="imgname" value="@Model.imgname"  />
        
     <div class="form-group">
         <label asp-for="name">@SharedLocalizer["Name"]</label>
@@ -65,20 +65,20 @@
 
     <div class="form-group" style="margin-top:10px">
         <label>@SharedLocalizer["CV"]</label>
-        <a href="~/files/docs/@Model.cvname" download="download" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
+        <a asp-area="Employee" asp-controller="Employee" asp-action="download" asp-route-cvname="@Model.cvname" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
 
     </div>
 
     <div class="form-group">
-        <label asp-for="img">@SharedLocalizer["Change photo"]</label>
-        <input type="file" class="form-control" id="name" asp-for="img">
-        <span asp-validation-for="img" class="text-danger font-weight-bold"></span>
+        <label >@SharedLocalizer["Change photo"]</label>
+        <input type="file" class="form-control"  name="empnewimg">
+  
     </div>
 
     <div class="form-group">
-        <label asp-for="cv">@SharedLocalizer["Change CV"]</label>
-        <input type="file" class="form-control" id="name" asp-for="cv">
-        <span asp-validation-for="cv" class="text-danger font-weight-bold"></span>
+        <label >@SharedLocalizer["Change CV"]</label>
+        <input type="file" class="form-control"  name="empnewcv">
+        
     </div>
     <div class="demo-checkbox">
         <input type="checkbox" asp-for="isActive" checked="">
@@ -88,7 +88,7 @@
 
     <center>
         <button class="btn btn-success" asp-area="Employee" asp-controller="Employee" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
-        <button type="submit" class="btn btn-primary">@SharedLocalizer["Update"]</button>
+        <button type="submit" class="btn btn-primary" >@SharedLocalizer["Update"]</button>
         <button class="btn btn-danger" asp-area="Employee" asp-controller="Employee" asp-action="Delete" asp-route-id="@Model.id">@SharedLocalizer["Delete"]</button>
 
 

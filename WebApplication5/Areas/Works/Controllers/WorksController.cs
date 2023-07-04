@@ -31,11 +31,11 @@ namespace WebApplication5.Areas.Works.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Create(int Employee_id)
+        public IActionResult Create(int Employeeid)
         {
           
            
-                ViewBag.data = Employee_id;
+            ViewBag.data = Employeeid;
             ViewBag.disabled = true;
 
             ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
@@ -78,7 +78,7 @@ namespace WebApplication5.Areas.Works.Controllers
         public IActionResult Delete(int empid, int proid)
         {
             ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-            var data = work.getFilter(a => a.Project_id == proid && a.Employee_id == empid).FirstOrDefault();
+            var data = work.getFilter(a => a.projectId == proid && a.employeeId == empid).FirstOrDefault();
             var model = mapper.Map<Works_ForVM>(data);
             return View(model);
         }
@@ -104,8 +104,8 @@ namespace WebApplication5.Areas.Works.Controllers
             else
             {
               
-                var res=work.getFilter(a => a.Employee_id != empid);
-                var projects = pro.getFilter(a => a.Dnum==state&& !res.Select(b=>b.Project_id).Contains(a.id));
+                var res=work.getFilter(a => a.employeeId != empid);
+                var projects = pro.getFilter(a => a.Dnum==state&& !res.Select(b=>b.projectId).Contains(a.id));
                 return Json(projects);
             }
 

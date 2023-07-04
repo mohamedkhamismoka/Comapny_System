@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <title>update</title>
  <link  rel="stylesheet" href="~/css/Dept.css"/>
     }
 </head>
@@ -22,7 +22,7 @@
         <center>
             <button class="btn btn-success " asp-controller="Department" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
 
-            <button type="submit" class="btn btn-primary " value="Update"> @SharedLocalizer["Update"]</button>
+            <button type="submit" class="btn btn-primary " asp-area="Department" asp-controller="Department" asp-action="Update" value="Update"> @SharedLocalizer["Update"]</button>
             <button class="btn btn-danger " asp-area="Department" asp-controller="Department" asp-action="Delete" asp-route-id="@Model.id">@SharedLocalizer["Delete"]</button>
         </center>
 

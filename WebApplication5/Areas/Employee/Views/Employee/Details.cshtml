@@ -65,7 +65,7 @@
 
     <div class="form-group" style="margin-top:10px">
         <label>@SharedLocalizer["CV"]</label>
-        <a href="~/files/docs/@Model.cvname" download="download" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
+        <a asp-area="Employee" asp-controller="Employee" asp-action="download" asp-route-cvname="@Model.cvname" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
 
     </div>
     <div class="demo-checkbox">
@@ -104,17 +104,17 @@
                 @if (item.Project.state == "Not started Yet")
                 {
 
-                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger" data-toggle="tooltip" title="@SharedLocalizer["can delete started and running project only"]">@SharedLocalizer["Delete"]</a></td>
+                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.employeeId" asp-route-proid="@item.projectId" class="btn btn-danger" data-toggle="tooltip" title="@SharedLocalizer["can delete started and running project only"]">@SharedLocalizer["Delete"]</a></td>
                 }
                 else if (item.Project.state == "Running")
                 {
 
-                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger" data-toggle="tooltip" title="@SharedLocalizer["can delete  started and running project only"]">@SharedLocalizer["Delete"]</a></td>
+                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.employeeId" asp-route-proid="@item.projectId" class="btn btn-danger" data-toggle="tooltip" title="@SharedLocalizer["can delete  started and running project only"]">@SharedLocalizer["Delete"]</a></td>
                 }
                 else
                 {
 
-                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.Employee_id" asp-route-proid="@item.Project_id" class="btn btn-danger disabled" data-toggle="tooltip" title="@SharedLocalizer["Cant Delete project finished"]">@SharedLocalizer["Delete"]</a></td>
+                    <td><a asp-area="Works" asp-controller="Works" asp-action="Delete" asp-route-empid="@item.employeeId" asp-route-proid="@item.projectId" class="btn btn-danger disabled" data-toggle="tooltip" title="@SharedLocalizer["Cant Delete project finished"]">@SharedLocalizer["Delete"]</a></td>
 
                 }
                     </tr>
@@ -141,7 +141,7 @@
     <script>
         if(@ViewBag.counter ==0){
             $(".table").css("display","none");
-            $(".table").replaceWith("<h1>Not Assigned to project yet</h1>")
+            $(".table").replaceWith("<h1> Not Assigned to project yet</h1>")
         }
         $(document).ready(function () {
 

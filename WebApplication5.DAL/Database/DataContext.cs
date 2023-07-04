@@ -16,19 +16,36 @@ namespace WebApplication5.DAL.Database;
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //make composite primary key for works for
-            builder.Entity<Works_For>().HasKey(a => new { a.Employee_id, a.Project_id });
+        //make composite primary key for works for
 
-            builder.Entity<IdentityUserLogin<string>>().HasKey(a => a.ProviderKey);
-            //The entity type 'IdentityUserRole<string>' requires a primary key to be defined 
-            builder.Entity<IdentityUserRole<string>>().HasNoKey();
+        builder.Entity<Works_For>().HasKey(a => new { a.employeeId, a.projectId });
+        builder.Entity<Employee>()
+          .HasMany(p => p.work)
+          .WithOne(t => t.Employee)
+          .HasForeignKey(t => t.employeeId)
+          .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+        builder.Entity<Project>()
+       .HasMany(p => p.work)
+       .WithOne(t => t.Project)
+       .HasForeignKey(v=>v.employeeId)
+       .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+
+        //The entity type 'IdentityUserRole<string>' requires a primary key to be defined 
+        builder.Entity<IdentityUserLogin<string>>().HasKey(a => a.ProviderKey);
+        builder.Entity<IdentityUserRole<string>>().HasNoKey();
             builder.Entity<IdentityUserToken<string>>().HasNoKey();
-        }
+       
+     
+    }
         //db set class help to apply operation on entities
-        public DbSet<Employee> employees { get; set; }
-        public DbSet<Department> departments { get; set; }
+        public virtual DbSet<Employee> employees { get; set; }
+        public virtual DbSet<Department> departments { get; set; }
 
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<Works_For> works { get; set; }
+        public virtual DbSet<Project> Projects { get; set; }
+        public virtual DbSet<Works_For> works { get; set; }
     
 }

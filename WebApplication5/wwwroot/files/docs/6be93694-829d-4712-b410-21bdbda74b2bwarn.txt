@@ -1,5 +1,0 @@
-
-        public static implicit operator Product(int v)
-        {
-            throw new NotImplementedException();
-        }

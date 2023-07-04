@@ -11,7 +11,7 @@
  <link href="~/css/Emp.css"  rel="stylesheet"/>
 }
 <center>
-    <h1>Create Employee</h1>
+    <h1> @SharedLocalizer["Create Employee"]</h1>
 </center>
 <form asp-area="Employee" asp-controller="Employee" asp-action="create" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label asp-for="Hiredate">@SharedLocalizer["Hiredate"]</label>
-        <input type="Date" class="form-control" id="name" placeholder="@SharedLocalizer["Enter HireDate"]" asp-for="Hiredate">
+        <input type="date" class="form-control" id="name" placeholder="@SharedLocalizer["Enter HireDate"]" asp-for="Hiredate">
         <span asp-validation-for="Hiredate" class="text-danger font-weight-bold"></span>
     </div>
     <div class="form-group">

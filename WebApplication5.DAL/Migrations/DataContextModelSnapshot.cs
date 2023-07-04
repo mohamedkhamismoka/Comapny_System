@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication5.DAL.Database;
 
+#nullable disable
+
 namespace WebApplication5.DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
@@ -15,9 +17,10 @@ namespace WebApplication5.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.11")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -42,8 +45,9 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -63,8 +67,9 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -131,8 +136,9 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
@@ -146,8 +152,9 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<DateTime>("Creationdate")
                         .HasColumnType("datetime2");
@@ -193,8 +200,9 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
                     b.Property<int>("Dnum")
                         .HasColumnType("int");
@@ -223,10 +231,10 @@ namespace WebApplication5.DAL.Migrations
 
             modelBuilder.Entity("WebApplication5.DAL.Entity.Works_For", b =>
                 {
-                    b.Property<int>("Employee_id")
+                    b.Property<int>("employeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Project_id")
+                    b.Property<int>("projectId")
                         .HasColumnType("int");
 
                     b.Property<int>("Dnum")
@@ -237,12 +245,11 @@ namespace WebApplication5.DAL.Migrations
 
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.HasKey("Employee_id", "Project_id");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.HasIndex("Project_id");
+                    b.HasKey("employeeId", "projectId");
 
                     b.ToTable("works");
                 });
@@ -328,14 +335,12 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.HasOne("WebApplication5.DAL.Entity.Employee", "Employee")
                         .WithMany("work")
-                        .HasForeignKey("Employee_id")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("employeeId")
                         .IsRequired();
 
                     b.HasOne("WebApplication5.DAL.Entity.Project", "Project")
                         .WithMany("work")
-                        .HasForeignKey("Project_id")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("employeeId")
                         .IsRequired();
 
                     b.Navigation("Employee");

@@ -52,11 +52,38 @@
 
     <center>
         <a class="btn btn-primary" asp-controller="Project" asp-action="Index">@SharedLocalizer["Back to data"]</a>
-        <button type="submit" class="btn btn-danger" >@SharedLocalizer["Delete"]</button>
-        <a class="btn btn-success" asp-controller="Project" asp-action="Update" asp-route-id="@Model.id">@SharedLocalizer["Update"]</a>
+         <button type="submit" class="btn btn-danger" style="display:none;" id="do">@SharedLocalizer["Delete"]</button>
+            <!-- Button to Open the Modal -->
+
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+              @SharedLocalizer["Delete"]
+            </button>
 
     </center>
 </form>
+
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index:9999">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                    <img src="~/images/download.png"  height="50"/>
+                    @SharedLocalizer["Warning"]</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   @SharedLocalizer["Are you sure you want to Delete Project?"]
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" class="btn btn-outline-danger" name="in_confirm_insert" id="delete-button">@SharedLocalizer["Delete"]</button>
+                    <button data-dismiss="modal" class="btn btn-outline-success" name="in_confirm_insert" id="cancel-delete-button">@SharedLocalizer["Cancel"]</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 @section script{
     <script src="~/plugins/jquery/jquery.js"></script>
     <script src="~/plugins/jquery-validation/jquery.validate.js"></script>
@@ -66,6 +93,12 @@
         $(function () {
             $("#datepicker").datepicker();
             $("#datepicker2").datepicker();
+
+                            $("#MyModal").modal();
+          
+                $("#exampleModal").on("click", "#delete-button", function () {
+                    $("#do").click();
+                });
         });
     </script>
 }

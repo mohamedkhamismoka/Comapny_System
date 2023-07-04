@@ -45,6 +45,7 @@ namespace WebApplication5.Controllers
 
         public IActionResult Register()
         {
+
           
             return View();
         }
@@ -91,7 +92,7 @@ namespace WebApplication5.Controllers
             password=model.password,
             isAgreed=model.isAgreed,
             IsSelected=model.IsSelected,
-                ExternalLogin = (await signin.GetExternalAuthenticationSchemesAsync()).ToList()
+            ExternalLogin = (await signin.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             return View(log);
         }
@@ -110,7 +111,7 @@ namespace WebApplication5.Controllers
 
                 var passwordResetLink = Url.Action("ResetPassword", "Account", new { mail=model.mail,Token=token }, Request.Scheme);
 
-                MailSender.mail(new MailVM { mail = model.mail,body = passwordResetLink }); ;
+                await MailSender.mail(new MailVM { mail = model.mail,body = passwordResetLink }); ;
 
                 //logger.Log(LogLevel.Warning, passwordResetLink);
 

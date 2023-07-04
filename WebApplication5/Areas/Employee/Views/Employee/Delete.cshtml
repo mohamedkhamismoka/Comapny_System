@@ -54,7 +54,7 @@
 
     <div class="form-group" style="margin-top:10px">
         <label>@SharedLocalizer["CV"]</label>
-        <a href="~/files/docs/@Model.cvname" download="download" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
+        <a asp-area="Employee" asp-controller="Employee" asp-action="download" asp-route-cvname="@Model.cvname" class="btn btn-primary" style="margin-left:10px;"> @SharedLocalizer["Download CV"]</a>
 
     </div>
     <div class="demo-checkbox">
