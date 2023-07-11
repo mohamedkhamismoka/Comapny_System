@@ -12,7 +12,7 @@ using WebApplication5.DAL.Database;
 namespace WebApplication5.DAL.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230704051351_build-db")]
+    [Migration("20230711163354_build-db")]
     partial class builddb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -237,9 +237,6 @@ namespace WebApplication5.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("projectId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Dnum")
                         .HasColumnType("int");
 
                     b.Property<int>("hours")

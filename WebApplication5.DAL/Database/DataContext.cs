@@ -19,7 +19,7 @@ namespace WebApplication5.DAL.Database;
         //make composite primary key for works for
 
         builder.Entity<Works_For>().HasKey(a => new { a.employeeId, a.projectId });
-  
+
 
         builder.Entity<Employee>()
       .HasMany(p => p.work)

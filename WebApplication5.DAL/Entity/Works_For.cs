@@ -17,6 +17,6 @@ namespace WebApplication5.DAL.Entity;
       
         public virtual Project Project { get; set; }
         
-        public int Dnum { get; set; }
+       
     
 }

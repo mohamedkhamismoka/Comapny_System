@@ -191,8 +191,7 @@ namespace WebApplication5.DAL.Migrations
                     employeeId = table.Column<int>(type: "int", nullable: false),
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    hours = table.Column<int>(type: "int", nullable: false),
-                    Dnum = table.Column<int>(type: "int", nullable: false)
+                    hours = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

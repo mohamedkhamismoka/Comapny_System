@@ -19,8 +19,8 @@ namespace WebApplication5.DAL.Entity;
         public DateTime Finishdate { get; set; }
 
         [ForeignKey("Dnum")]
-        public Department Department { get; set; }
+        public virtual Department Department { get; set; }
         public string state { get; set; }
-        public IEnumerable<Works_For>? work { get; set; }
+        public virtual IEnumerable<Works_For> work { get; set; }
     
 }

@@ -8,7 +8,7 @@ namespace WebApplication5.DAL.Entity;
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public String name { get; set; }
-        public IEnumerable<Employee> employees { get; set; }
-        public IEnumerable<Project> projects { get; set; }
+        public virtual IEnumerable<Employee> employees { get; set; }
+        public virtual IEnumerable<Project> projects { get; set; }
     }
 

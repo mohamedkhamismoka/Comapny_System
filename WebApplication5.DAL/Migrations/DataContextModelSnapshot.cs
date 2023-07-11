@@ -237,9 +237,6 @@ namespace WebApplication5.DAL.Migrations
                     b.Property<int?>("projectId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Dnum")
-                        .HasColumnType("int");
-
                     b.Property<int>("hours")
                         .HasColumnType("int");
 
