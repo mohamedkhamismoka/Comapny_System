@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="~/plugins/jqvmap/jqvmap.min.css">
+
     <link href="~/css/StyleSheet1.css" rel="stylesheet" />
     <link href="~/css/Tables.css" rel="stylesheet" />
 
@@ -34,13 +35,14 @@
         <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
         <style>
             body {
-                overflow-x: hidden
+                overflow-x: auto
             }
         </style>
     }
     else
     {
         <link href="~/dist/css/adminlte-AR.css" rel="stylesheet" />
+
 
         <style>
             form.form-inline.mm {
@@ -56,7 +58,7 @@
             }
 
               
-            }
+              <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
         </style>
     }
 
@@ -442,7 +444,9 @@
     @if (Culture == "ar-EG")
     {
         <script src="~/dist/js/adminlte-ar.js"></script>
-        <script>
+        <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
+
+     @*   <script>
             $(document).ready(function () {
                 $(".co").on("click", function () {
                     if ($("aside").css("display") == "none") {
@@ -456,7 +460,7 @@
              
 
             })
-        </script>
+        </script>*@
     }
     else
     {
