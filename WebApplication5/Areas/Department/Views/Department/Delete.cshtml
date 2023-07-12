@@ -37,7 +37,7 @@
     </center>
 
     <form class="forma" asp-area="Department" asp-controller="Department" asp-action="Delete" method="post">
-
+        <input type="hidden" asp-for="id" />
         <div class="form-group">
             <label asp-for="name">@SharedLocalizer["Name"]:</label>
             <input type="text" class="form-control" placeholder=@SharedLocalizer["Enter Name"] id="Name" asp-for="name" readonly>

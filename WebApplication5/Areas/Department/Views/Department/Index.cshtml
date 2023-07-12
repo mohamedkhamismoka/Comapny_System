@@ -58,7 +58,7 @@
                                                     <tr>
                                                         <td>@item.id</td>
                                                         <td>@item.name</td>
-                                                        <td>@employee.getbyfilter(a => a.departmentid == item.id).Count()</td>
+                                                        <td>@employee.getbyfilter(a => a.DepartmentId == item.id).Count()</td>
 
 
                                                         <td><a class="btn btn-success" asp-action="update" asp-route-id="@item.id">@SharedLocalizer["Update"]</a></td>

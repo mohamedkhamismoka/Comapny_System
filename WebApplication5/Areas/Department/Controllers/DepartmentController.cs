@@ -99,7 +99,7 @@ namespace WebApplication5.Areas.De.Controllers
         //delete department which need to be deleted 
         public IActionResult Delete(DeptVM dep)
         {//check first that no employees in thid=s department
-            if (emp.getbyfilter(a=>a.departmentid==dep.id).Count()==0)
+            if (emp.getbyfilter(a=>a.DepartmentId==dep.id).Count()==0)
             {
 
                 var data = mapper.Map<Department>(dep);

@@ -159,6 +159,9 @@ namespace WebApplication5.DAL.Migrations
                     b.Property<DateTime>("Creationdate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Hiredate")
                         .HasColumnType("datetime2");
 
@@ -167,9 +170,6 @@ namespace WebApplication5.DAL.Migrations
 
                     b.Property<string>("cvname")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("departmentid")
-                        .HasColumnType("int");
 
                     b.Property<string>("imgname")
                         .HasColumnType("nvarchar(max)");
@@ -191,7 +191,7 @@ namespace WebApplication5.DAL.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("departmentid");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("employees");
                 });
@@ -204,7 +204,7 @@ namespace WebApplication5.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<int>("Dnum")
+                    b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Finishdate")
@@ -224,31 +224,25 @@ namespace WebApplication5.DAL.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Dnum");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("WebApplication5.DAL.Entity.Works_For", b =>
                 {
-                    b.Property<int?>("employeeId")
+                    b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("projectId")
+                    b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
                     b.Property<int>("hours")
                         .HasColumnType("int");
 
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.HasKey("EmployeeId", "ProjectId");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
-
-                    b.HasKey("employeeId", "projectId");
-
-                    b.HasIndex("projectId");
+                    b.HasIndex("ProjectId");
 
                     b.ToTable("works");
                 });
@@ -312,7 +306,7 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.HasOne("WebApplication5.DAL.Entity.Department", "Department")
                         .WithMany("employees")
-                        .HasForeignKey("departmentid")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -323,7 +317,7 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.HasOne("WebApplication5.DAL.Entity.Department", "Department")
                         .WithMany("projects")
-                        .HasForeignKey("Dnum")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -334,13 +328,13 @@ namespace WebApplication5.DAL.Migrations
                 {
                     b.HasOne("WebApplication5.DAL.Entity.Employee", "Employee")
                         .WithMany("work")
-                        .HasForeignKey("employeeId")
+                        .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("WebApplication5.DAL.Entity.Project", "Project")
                         .WithMany("work")
-                        .HasForeignKey("projectId")
+                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

@@ -46,13 +46,13 @@ namespace WebApplication5.BL.Reposatory;
         }
 
     public void deleteEmployee(int id)
-    { var data = d.works.Where(a => a.employeeId == id);
+    { var data = d.works.Where(a => a.EmployeeId == id);
         d.works.RemoveRange(data);
     }
 
     public void deleteProject(int id)
     {
-        var data = d.works.Where(a => a.projectId == id);
+        var data = d.works.Where(a => a.ProjectId == id);
         d.works.RemoveRange(data);
     }
 }

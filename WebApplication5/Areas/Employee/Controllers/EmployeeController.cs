@@ -212,7 +212,7 @@ namespace WebApplication5.Areas.De.Controllers
             var data = emp.getbyid(id);
             var model = mapper.Map<EmpVM>(data);
 
-            ViewBag.ex = work.getFilter(a => a.employeeId == model.id);
+            ViewBag.ex = work.getFilter(a => a.EmployeeId == model.id);
             foreach (var item in ViewBag.ex)
             {
                 count++;

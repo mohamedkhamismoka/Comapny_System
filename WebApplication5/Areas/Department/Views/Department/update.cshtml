@@ -12,8 +12,8 @@
     <center>
         <h1 style="margin-top:20px;color:red">@SharedLocalizer["update Department"]</h1>
     </center>
-    <form class="forma" asp-area="Departments" asp-controller="Department" asp-action="update">
-
+    <form class="forma" asp-area="Department" asp-controller="Department" asp-action="update" method="post">
+         <input type="hidden" asp-for="id" />
         <div class="form-group">
             <label for="Name">@SharedLocalizer["Name"]:</label>
             <input type="text" class="form-control" placeholder=@SharedLocalizer["Enter Name"] id="Name" asp-for="name">
@@ -22,7 +22,7 @@
         <center>
             <button class="btn btn-success " asp-controller="Department" asp-action="Index">@SharedLocalizer["Back To Data"]</button>
 
-            <button type="submit" class="btn btn-primary " asp-area="Department" asp-controller="Department" asp-action="Update" value="Update"> @SharedLocalizer["Update"]</button>
+            <button type="submit" class="btn btn-primary "  value="Update"> @SharedLocalizer["Update"]</button>
             <button class="btn btn-danger " asp-area="Department" asp-controller="Department" asp-action="Delete" asp-route-id="@Model.id">@SharedLocalizer["Delete"]</button>
         </center>
 

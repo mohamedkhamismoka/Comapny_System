@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication5.DAL.Migrations
 {
-    public partial class builddb : Migration
+    public partial class build : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -144,7 +144,7 @@ namespace WebApplication5.DAL.Migrations
                     isActive = table.Column<bool>(type: "bit", nullable: false),
                     isDeleted = table.Column<bool>(type: "bit", nullable: false),
                     phone = table.Column<long>(type: "bigint", nullable: false),
-                    departmentid = table.Column<int>(type: "int", nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: false),
                     cvname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     imgname = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -152,8 +152,8 @@ namespace WebApplication5.DAL.Migrations
                 {
                     table.PrimaryKey("PK_employees", x => x.id);
                     table.ForeignKey(
-                        name: "FK_employees_departments_departmentid",
-                        column: x => x.departmentid,
+                        name: "FK_employees_departments_DepartmentId",
+                        column: x => x.DepartmentId,
                         principalTable: "departments",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -167,7 +167,7 @@ namespace WebApplication5.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Dnum = table.Column<int>(type: "int", nullable: false),
+                    DepartmentId = table.Column<int>(type: "int", nullable: false),
                     Startdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Finishdate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     state = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -176,8 +176,8 @@ namespace WebApplication5.DAL.Migrations
                 {
                     table.PrimaryKey("PK_Projects", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Projects_departments_Dnum",
-                        column: x => x.Dnum,
+                        name: "FK_Projects_departments_DepartmentId",
+                        column: x => x.DepartmentId,
                         principalTable: "departments",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -187,43 +187,41 @@ namespace WebApplication5.DAL.Migrations
                 name: "works",
                 columns: table => new
                 {
-                    projectId = table.Column<int>(type: "int", nullable: false),
-                    employeeId = table.Column<int>(type: "int", nullable: false),
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjectId = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
                     hours = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_works", x => new { x.employeeId, x.projectId });
+                    table.PrimaryKey("PK_works", x => new { x.EmployeeId, x.ProjectId });
                     table.ForeignKey(
-                        name: "FK_works_employees_employeeId",
-                        column: x => x.employeeId,
+                        name: "FK_works_employees_EmployeeId",
+                        column: x => x.EmployeeId,
                         principalTable: "employees",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_works_Projects_projectId",
-                        column: x => x.projectId,
+                        name: "FK_works_Projects_ProjectId",
+                        column: x => x.ProjectId,
                         principalTable: "Projects",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_employees_departmentid",
+                name: "IX_employees_DepartmentId",
                 table: "employees",
-                column: "departmentid");
+                column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Projects_Dnum",
+                name: "IX_Projects_DepartmentId",
                 table: "Projects",
-                column: "Dnum");
+                column: "DepartmentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_works_projectId",
+                name: "IX_works_ProjectId",
                 table: "works",
-                column: "projectId");
+                column: "ProjectId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

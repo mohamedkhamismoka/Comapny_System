@@ -25,11 +25,11 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Dnum">@SharedLocalizer["department"]</label><br />
-        <select asp-for="Dnum" class="form-control" asp-items="(SelectList)ViewBag.departmentlist" disabled>
+        <label asp-for="DepartmentId">@SharedLocalizer["department"]</label><br />
+        <select asp-for="DepartmentId" class="form-control" asp-items="(SelectList)ViewBag.departmentlist" disabled>
             <option>Choose Department</option>
         </select><br />
-        <span asp-validation-for="Dnum" class="text-danger font-weight-bold" ></span>
+        <span asp-validation-for="DepartmentId" class="text-danger font-weight-bold" ></span>
     </div>
     <div class="form-group"style="margin-top:-25px">
         <label asp-for="Startdate">@SharedLocalizer["Start Date"]</label><br />

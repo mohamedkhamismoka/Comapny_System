@@ -57,7 +57,7 @@ namespace WebApplication5.Areas.Works.Controllers
 
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
                 ViewBag.projectlist = new SelectList(pro.get(), "id", "name");
-                wf.Dnum = 0;
+                wf.DepartmentId = 0;
                 ViewBag.disabled = true;
                 return View(wf);
             }catch(Exception ee)
@@ -78,7 +78,7 @@ namespace WebApplication5.Areas.Works.Controllers
         public IActionResult Delete(int empid, int proid)
         {
             ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
-            var data = work.getFilter(a => a.projectId == proid && a.employeeId == empid).FirstOrDefault();
+            var data = work.getFilter(a => a.ProjectId == proid && a.EmployeeId == empid).FirstOrDefault();
             var model = mapper.Map<Works_ForVM>(data);
             return View(model);
         }
@@ -104,8 +104,8 @@ namespace WebApplication5.Areas.Works.Controllers
             else
             {
               
-                var res=work.getFilter(a => a.employeeId != empid);
-                var projects = pro.getFilter(a => a.Dnum==state&& !res.Select(b=>b.projectId).Contains(a.id));
+                var res=work.getFilter(a => a.EmployeeId != empid);
+                var projects = pro.getFilter(a => a.DepartmentId==state&& !res.Select(b=>b.ProjectId).Contains(a.id));
                 return Json(projects);
             }
 

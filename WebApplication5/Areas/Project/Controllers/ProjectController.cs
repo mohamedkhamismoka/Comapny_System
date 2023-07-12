@@ -57,16 +57,16 @@ namespace WebApplication5.Areas.Project.Controllers
                 {
                     if (proj.Finishdate > DateTime.Now.Date && proj.Startdate > DateTime.Now.Date)
                     {
-                        proj.state = SharedLocalizer["Not started Yet"];
+                        proj.state = "Not started Yet";
                     }
-                    else if (proj.Finishdate > DateTime.Now.Date && proj.Startdate < DateTime.Now.Date)
+                    else if (proj.Finishdate > DateTime.Now.Date && proj.Startdate <= DateTime.Now.Date)
                     {
 
-                        proj.state = SharedLocalizer["Running"];
+                        proj.state = "Running";
                     }
                     else if (proj.Finishdate < DateTime.Now.Date)
                     {
-                        proj.state = SharedLocalizer["Finished"];
+                        proj.state = "Finished";
                     }
                     var data = mapper.Map<WebApplication5.DAL.Entity.Project>(proj);
                     pro.create(data);
