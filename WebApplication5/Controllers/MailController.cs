@@ -12,23 +12,32 @@ namespace WebApplication5.Controllers
         }
         [HttpPost]
         //recireve mailV object to send this data to reciever
-        public async Task<IActionResult> send(MailVM comm)
+        public async Task<IActionResult> Index(MailVM comm)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    MailSender.mail(comm);
+                    var x=MailSender.mail(comm);
+                    if (x)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                       TempData["message"] = "there is Error try again please";
+                        return View();
+                    }
                  
-                    return RedirectToAction("Index", "Home");
+                 
                 }
                
                 return RedirectToAction("Index");
             }
             catch(Exception e)
             {
-                TempData["x"] = e.Message;
-                return RedirectToAction("Index");
+                TempData["message"] = "there is Error try again please";
+                return View();
             }
 
         }

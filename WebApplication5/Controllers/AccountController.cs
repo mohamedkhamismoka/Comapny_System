@@ -111,7 +111,7 @@ namespace WebApplication5.Controllers
 
                 var passwordResetLink = Url.Action("ResetPassword", "Account", new { mail=model.mail,Token=token }, Request.Scheme);
 
-                await MailSender.mail(new MailVM { mail = model.mail,body = passwordResetLink }); ;
+                 MailSender.mail(new MailVM { mail = model.mail,body = passwordResetLink }); ;
 
                 //logger.Log(LogLevel.Warning, passwordResetLink);
 
