@@ -11,21 +11,21 @@ namespace WebApplication5.Controllers
              
         }
         [HttpPost]
-        //recireve mailV object to send this data to reciever
+        //recireve mail object to send this data to reciever
         public async Task<IActionResult> Index(MailVM comm)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var x=MailSender.mail(comm);
-                    if (x)
+                    var sendstate=MailSender.mail(comm);
+                    if (sendstate)
                     {
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
-                       TempData["message"] = "there is Error try again please";
+                       TempData["message"] = "There Is Error Try Again Please";
                         return View();
                     }
                  

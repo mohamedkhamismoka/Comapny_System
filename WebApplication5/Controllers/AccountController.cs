@@ -3,13 +3,13 @@ namespace WebApplication5.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<ApplicationUser> usermanager;
-        private readonly SignInManager<ApplicationUser> signin;
+        private readonly UserManager<ApplicationUser> _usermanager;
+        private readonly SignInManager<ApplicationUser> _signinmanager;
 
-        public AccountController(UserManager<ApplicationUser> user,SignInManager<ApplicationUser> signin)
+        public AccountController(UserManager<ApplicationUser> usermanager,SignInManager<ApplicationUser> signinmanager)
         {
-            this.usermanager = user;
-            this.signin = signin;
+            this._usermanager = usermanager;
+            this._signinmanager = signinmanager;
         }
         public IActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace WebApplication5.Controllers
                     isAgreed = model.isAgreed
 
                 };
-               var result=await  usermanager.CreateAsync(user, model.password);
+               var result=await  _usermanager.CreateAsync(user, model.password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Login");
@@ -58,7 +58,7 @@ namespace WebApplication5.Controllers
             LoginVM log = new LoginVM
             {
                 ReturnUrl = ReturnUrl,
-                ExternalLogin = (await signin.GetExternalAuthenticationSchemesAsync()).ToList()
+                ExternalLogin = (await _signinmanager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
 
             return View(log);
@@ -72,10 +72,10 @@ namespace WebApplication5.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user =  await usermanager.FindByEmailAsync(model.mail);
+                var user =  await _usermanager.FindByEmailAsync(model.mail);
                 if (user != null)
                 {
-                   var result=await  signin.PasswordSignInAsync(user,model.password,model.IsSelected,false);
+                   var result=await _signinmanager.PasswordSignInAsync(user,model.password,model.IsSelected,false);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Index", "Home");
@@ -96,7 +96,7 @@ namespace WebApplication5.Controllers
             password=model.password,
             isAgreed=model.isAgreed,
             IsSelected=model.IsSelected,
-            ExternalLogin = (await signin.GetExternalAuthenticationSchemesAsync()).ToList()
+            ExternalLogin = (await _signinmanager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             return View(log);
         }
@@ -107,11 +107,11 @@ namespace WebApplication5.Controllers
         [HttpPost]
         public async Task<IActionResult> ForgetPassword(ForgetPasswordVM model)
         {
-        var user = await usermanager.FindByEmailAsync(model.mail);
+        var user = await _usermanager.FindByEmailAsync(model.mail);
 
             if (user != null)
             {
-                var token = await usermanager.GeneratePasswordResetTokenAsync(user);
+                var token = await _usermanager.GeneratePasswordResetTokenAsync(user);
 
                 var passwordResetLink = Url.Action("ResetPassword", "Account", new { mail=model.mail,Token=token }, Request.Scheme);
 
@@ -138,11 +138,11 @@ namespace WebApplication5.Controllers
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
         {
-            var user = await usermanager.FindByEmailAsync(model.mail);
+            var user = await _usermanager.FindByEmailAsync(model.mail);
 
             if (user != null)
             {
-                var result = await usermanager.ResetPasswordAsync(user, model.Token, model.password);
+                var result = await _usermanager.ResetPasswordAsync(user, model.Token, model.password);
 
                 if (result.Succeeded)
                 {
@@ -169,7 +169,7 @@ namespace WebApplication5.Controllers
         [HttpPost]
         public async Task<IActionResult> signout(ResetPasswordVM model)
         {
-            await signin.SignOutAsync();
+            await _signinmanager.SignOutAsync();
             return RedirectToAction("Login");
         }
 
@@ -181,7 +181,7 @@ namespace WebApplication5.Controllers
         public IActionResult ExternalLogin(string provider)
         {
             var redirect = Url.Action("ExternalLoginCallback", "Account");
-            var properities = signin.ConfigureExternalAuthenticationProperties(provider, redirect);
+            var properities = _signinmanager.ConfigureExternalAuthenticationProperties(provider, redirect);
             return new ChallengeResult(provider, properities);
         }
 
@@ -191,20 +191,20 @@ namespace WebApplication5.Controllers
             LoginVM log = new LoginVM
             {
                 ReturnUrl = ReturnUrl,
-                ExternalLogin = (await signin.GetExternalAuthenticationSchemesAsync()).ToList()
+                ExternalLogin = (await _signinmanager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
             if (remoteError != null)
             {
                 ModelState.AddModelError("", $"Error from External Provider:{remoteError}");
                 return View("Login", log);
             }
-            var info = await signin.GetExternalLoginInfoAsync();
+            var info = await _signinmanager.GetExternalLoginInfoAsync();
             if (info == null)
             {
                 ModelState.AddModelError("", "Error Loading Externally");
                 return View("Login", log);
             }
-            var signinres = await signin.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
+            var signinres = await _signinmanager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
 
             if (signinres.Succeeded)
             {
@@ -215,7 +215,7 @@ namespace WebApplication5.Controllers
                 var Email = info.Principal.FindFirstValue(ClaimTypes.Email);
                 if (Email != null)
                 {
-                    var user = await usermanager.FindByEmailAsync(Email);
+                    var user = await _usermanager.FindByEmailAsync(Email);
                     if (user == null)
                     {
                         user = new ApplicationUser
@@ -226,11 +226,11 @@ namespace WebApplication5.Controllers
 
 
                         };
-                        await usermanager.CreateAsync(user);
-                        await usermanager.AddLoginAsync(user, info);
+                        await _usermanager.CreateAsync(user);
+                        await _usermanager.AddLoginAsync(user, info);
                     }
                     
-                    await signin.SignInAsync(user, isPersistent: false);
+                    await _signinmanager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index","Home");
                 }
             }

@@ -36,7 +36,7 @@ namespace WebApplication5.Areas.De.Controllers
         }
         [HttpPost]
        //create department and with values from DEP and save in database
-        public IActionResult Create(DeptVM dep)
+        public IActionResult Create(DeptVM department)
 
         {
             try
@@ -44,17 +44,17 @@ namespace WebApplication5.Areas.De.Controllers
                 if (ModelState.IsValid)
                 {
                  
-                    var data = mapper.Map<Department>(dep);
+                    var data = mapper.Map<Department>(department);
                     dept.create(data);
                     return RedirectToAction("Index");
                 }
               
-                    return View(dep);
+                    return View(department);
                 
             }
             catch(Exception e)
             {
-                return View(dep);
+                return View(department);
             }
         }
       //show data of department which need to be updated based on id
@@ -67,22 +67,22 @@ namespace WebApplication5.Areas.De.Controllers
 
         [HttpPost]
         //update department which need to be updated and new values comes from object dep
-        public IActionResult update(DeptVM dep)
+        public IActionResult update(DeptVM department)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var data = mapper.Map<Department>(dep);
+                    var data = mapper.Map<Department>(department);
                     dept.update(data);
                     return RedirectToAction("Index");
                 }
-               return View(dep);
+               return View(department);
                 
             }
             catch (Exception e)
             {
-                return View(dep);
+                return View(department);
             }
         }
         //delete department which need to be deleted based on id
@@ -97,20 +97,20 @@ namespace WebApplication5.Areas.De.Controllers
 
         [HttpPost]
         //delete department which need to be deleted 
-        public IActionResult Delete(DeptVM dep)
+        public IActionResult Delete(DeptVM department)
         {//check first that no employees in thid=s department
-            if (emp.getbyfilter(a=>a.DepartmentId==dep.id).Count()==0)
+            if (emp.getbyfilter(a=>a.DepartmentId== department.id).Count()==0)
             {
 
-                var data = mapper.Map<Department>(dep);
+                var data = mapper.Map<Department>(department);
                 dept.delete(data);
 
                 return RedirectToAction("Index");
             }
             else
             {
-                ViewBag.x = "can not delete department have employees";
-                return View(dep);
+                ViewBag.errormessage = "can not delete department have employees";
+                return View(department);
             }
             
     

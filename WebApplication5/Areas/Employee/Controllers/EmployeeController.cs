@@ -34,8 +34,8 @@ namespace WebApplication5.Areas.De.Controllers
 
 
             var data = emp.getbyfilter();
-            var res = mapper.Map<IEnumerable<EmpVM>>(data);
-            return View(res);
+            var result = mapper.Map<IEnumerable<EmpVM>>(data);
+            return View(result);
 
 
 
@@ -55,17 +55,17 @@ namespace WebApplication5.Areas.De.Controllers
 
         [HttpPost]
         //craete Employee
-        public IActionResult create(EmpVM model)
+        public IActionResult create(EmpVM employee)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                        var cvname = Fileuploader.uploader("docs", model.cv);
-                        var imgname = Fileuploader.uploader("images", model.img);
-                        model.cvname = cvname;
-                        model.imgname = imgname;
-                        var data = mapper.Map<Employee>(model);
+                        var cvname = Fileuploader.uploader("docs", employee.cv);
+                        var imgname = Fileuploader.uploader("images", employee.img);
+                    employee.cvname = cvname;
+                    employee.imgname = imgname;
+                        var data = mapper.Map<Employee>(employee);
                         emp.create(data);
                         return RedirectToAction("Index");
                     
@@ -73,14 +73,14 @@ namespace WebApplication5.Areas.De.Controllers
                 }
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
-                return View(model);
+                return View(employee);
 
             }
             catch (Exception e)
             {
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
-                return View(model);
+                return View(employee);
             }
 
         }
@@ -100,7 +100,7 @@ namespace WebApplication5.Areas.De.Controllers
 
         [HttpPost]
         //update employee and empo reperesnt new values 
-        public IActionResult update(EmpVM empo, IFormFile? empnewimg, IFormFile? empnewcv)
+        public IActionResult update(EmpVM employee, IFormFile? empnewimg, IFormFile? empnewcv)
         {
             try
             {
@@ -108,14 +108,14 @@ namespace WebApplication5.Areas.De.Controllers
                 if (empnewimg != null)
                 {
                     var imgname = Fileuploader.uploader("images", empnewimg);
-                    empo.img= empnewimg;
-                    empo.imgname = imgname;
+                    employee.img= empnewimg;
+                    employee.imgname = imgname;
                 }
                 if (empnewcv != null)
                 {
                     var cvname = Fileuploader.uploader("images", empnewcv);
-                    empo.cv = empnewcv;
-                    empo.cvname = cvname;
+                    employee.cv = empnewcv;
+                    employee.cvname = cvname;
                 }
                 if (!ModelState.IsValid )
                 {
@@ -139,9 +139,9 @@ namespace WebApplication5.Areas.De.Controllers
 
                     if (y == 0 && j >= 0)
                     {
-                        var data = mapper.Map<Employee>(empo);
-                        data.imgname = empo.imgname;
-                        data.cvname = empo.cvname;
+                        var data = mapper.Map<Employee>(employee);
+                        data.imgname = employee.imgname;
+                        data.cvname = employee.cvname;
 
 
                         emp.update(data);
@@ -151,7 +151,7 @@ namespace WebApplication5.Areas.De.Controllers
                     {
                         ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
-                        return View(empo);
+                        return View(employee);
                     }
                 
 
@@ -161,9 +161,9 @@ namespace WebApplication5.Areas.De.Controllers
                 }
               else
                 {
-                    var data = mapper.Map<Employee>(empo);
-                    data.imgname = empo.imgname;
-                    data.cvname = empo.cvname;
+                    var data = mapper.Map<Employee>(employee);
+                    data.imgname = employee.imgname;
+                    data.cvname = employee.cvname;
 
 
                     emp.update(data);
@@ -176,7 +176,7 @@ namespace WebApplication5.Areas.De.Controllers
             {
                 ViewBag.departmentlist = new SelectList(dept.get(), "id", "name");
 
-                return View(empo);
+                return View(employee);
             }
         }
         // show employee data  that be deleted  by id
@@ -193,14 +193,14 @@ namespace WebApplication5.Areas.De.Controllers
         [HttpPost]
         [ActionName("Delete")]
         //delete employee
-        public IActionResult ConfirmDelete(EmpVM empo)
+        public IActionResult ConfirmDelete(EmpVM employee)
         {
-            work.deleteEmployee(empo.id);
+            work.deleteEmployee(employee.id);
 
-            var data = mapper.Map<Employee>(empo);
+            var data = mapper.Map<Employee>(employee);
             emp.delete(data);
-            Fileuploader.delete("docs", empo.cvname);
-            Fileuploader.delete("images", empo.imgname);
+            Fileuploader.delete("docs", employee.cvname);
+            Fileuploader.delete("images", employee.imgname);
             return RedirectToAction("Index");
 
 

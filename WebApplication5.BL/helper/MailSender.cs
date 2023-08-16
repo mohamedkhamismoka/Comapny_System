@@ -5,7 +5,7 @@ namespace WebApplication5.BL.helper;
 
     public class MailSender
     {//help sending mails to any comment
-        public static bool mail(MailVM comm)
+        public static bool mail(MailVM mail)
         {
             try
             {
@@ -18,11 +18,11 @@ namespace WebApplication5.BL.helper;
 
 
                 };
-                email.To.Add(MailboxAddress.Parse(comm.mail));
+                email.To.Add(MailboxAddress.Parse(mail.mail));
                 var builder = new BodyBuilder();
 
 
-                builder.HtmlBody = comm.body;
+                builder.HtmlBody = mail.body;
                 email.Body = builder.ToMessageBody();
 
 

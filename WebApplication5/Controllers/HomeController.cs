@@ -20,7 +20,7 @@ namespace WebApplication5.Controllers
         public IActionResult Index()
         {
 
-           ViewBag.empCount= emp.getbyfilter().Count();
+             ViewBag.empCount= emp.getbyfilter().Count();
             ViewBag.deptCount = dept.get().Count(); ;
             return View();
         }
