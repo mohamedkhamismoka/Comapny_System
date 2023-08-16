@@ -12,6 +12,7 @@
 <center>
     <h3 class="text-danger mt-3 mb-2">@TempData["message"]</h3>
 </center>
+
 <form asp-controller="Mail" asp-action="Index" method="post">
     <div class="form-group">
         <label asp-for="mail">@SharedLocalizer["email address"]</label>

@@ -18,7 +18,6 @@ C:\Users\EL-Masria\Desktop\Comapny_System\WebApplication5.BL\obj\Debug\net6.0\We
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\WebApplication5.BL.deps.json
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\WebApplication5.BL.runtimeconfig.json
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\WebApplication5.BL.dll
-C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\ref\WebApplication5.BL.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\WebApplication5.BL.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\WebApplication5.DAL.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\bin\Debug\net6.0\WebApplication5.DAL.pdb
@@ -32,3 +31,4 @@ C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\obj\Debug\
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\obj\Debug\net6.0\ref\WebApplication5.BL.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\obj\Debug\net6.0\WebApplication5.BL.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\obj\Debug\net6.0\WebApplication5.BL.genruntimeconfig.cache
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.BL\obj\Debug\net6.0\refint\WebApplication5.BL.dll

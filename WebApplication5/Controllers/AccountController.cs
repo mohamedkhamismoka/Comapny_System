@@ -86,6 +86,10 @@ namespace WebApplication5.Controllers
                         ModelState.AddModelError("", "username(Email) or password Incorrect");
                     }
                 }
+                else
+                {
+                    ModelState.AddModelError("", "username(Email) or password Incorrect");
+                }
             }
             LoginVM log = new LoginVM
             {mail=model.mail,

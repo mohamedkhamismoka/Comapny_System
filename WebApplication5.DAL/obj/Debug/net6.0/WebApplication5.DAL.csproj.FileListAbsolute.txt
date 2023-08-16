@@ -15,7 +15,6 @@ C:\Users\EL-Masria\Desktop\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\W
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\bin\Debug\net6.0\WebApplication5.DAL.deps.json
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\bin\Debug\net6.0\WebApplication5.DAL.runtimeconfig.json
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\bin\Debug\net6.0\WebApplication5.DAL.dll
-C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\bin\Debug\net6.0\ref\WebApplication5.DAL.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\bin\Debug\net6.0\WebApplication5.DAL.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\WebApplication5.DAL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\WebApplication5.DAL.AssemblyInfoInputs.cache
@@ -26,3 +25,4 @@ C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\WebApplication5.DAL.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\WebApplication5.DAL.genruntimeconfig.cache
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\WebApplication5.DAL.csproj.AssemblyReference.cache
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5.DAL\obj\Debug\net6.0\refint\WebApplication5.DAL.dll

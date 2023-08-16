@@ -1,6 +1,9 @@
 ﻿
 
-
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+using System.IO;
+using System.Drawing;
 
 namespace WebApplication5.Areas.De.Controllers
 {
@@ -253,8 +256,7 @@ namespace WebApplication5.Areas.De.Controllers
             byte[] fileBytes = System.IO.File.ReadAllBytes(path);
             return File(fileBytes, "application/x-msdownload", cvname);
         }
-
-
+       
 
 
 

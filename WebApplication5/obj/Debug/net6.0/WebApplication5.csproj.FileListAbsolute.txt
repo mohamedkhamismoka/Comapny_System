@@ -173,7 +173,6 @@ C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\WebApplication5.deps.json
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\WebApplication5.runtimeconfig.json
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\WebApplication5.dll
-C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\ref\WebApplication5.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\WebApplication5.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\ar-EG\WebApplication5.resources.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\AutoMapper.dll
@@ -334,3 +333,13 @@ C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\ref\WebApplication5.dll
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\WebApplication5.pdb
 C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\WebApplication5.genruntimeconfig.cache
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\staticwebassets\msbuild.WebApplication5.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\staticwebassets\msbuild.build.WebApplication5.props
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.WebApplication5.props
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.WebApplication5.props
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\obj\Debug\net6.0\refint\WebApplication5.dll
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\Syncfusion.Compression.Base.dll
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\Syncfusion.DocIO.Base.dll
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\Syncfusion.Licensing.dll
+C:\Users\EL-Masria\Documents\GitHub\Comapny_System\WebApplication5\bin\Debug\net6.0\Syncfusion.OfficeChart.Base.dll
