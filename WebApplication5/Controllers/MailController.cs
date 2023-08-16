@@ -19,7 +19,7 @@ namespace WebApplication5.Controllers
                 if (ModelState.IsValid)
                 {
                     var sendstate=MailSender.mail(comm);
-                    if (sendstate)
+                    if (sendstate.Result)
                     {
                         return RedirectToAction("Index", "Home");
                     }

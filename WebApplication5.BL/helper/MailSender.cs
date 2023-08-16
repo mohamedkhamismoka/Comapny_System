@@ -5,7 +5,7 @@ namespace WebApplication5.BL.helper;
 
     public class MailSender
     {//help sending mails to any comment
-        public static bool mail(MailVM mail)
+        public static async Task<bool> mail(MailVM mail)
         {
             try
             {
@@ -34,8 +34,8 @@ namespace WebApplication5.BL.helper;
                 {
                     smtp.Connect("smtp.gmail.com", 587, false);
                     smtp.Authenticate("atiffahmykhamis@gmail.com", "dxtqjlfupztfmyli");
-                     smtp.SendAsync(email);
-                    smtp.Disconnect(true);
+                     await smtp.SendAsync(email);
+                       smtp.Disconnect(true);
                 }
 
 
