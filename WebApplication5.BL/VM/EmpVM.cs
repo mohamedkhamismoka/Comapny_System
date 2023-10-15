@@ -16,6 +16,7 @@ public class EmpVM
     public int id { get; set; }
     [Required(ErrorMessage = "Name is required")]
     [MinLength(3, ErrorMessage = "min length is 3")]
+    
     public string? name { get; set; }
     [Required(ErrorMessage = "Address required")]
     [RegularExpression("[0-9]{2,5}-[a-zA-Z]{1,50}-[a-zA-Z]{1,50}-[a-zA-Z]{1,50}", ErrorMessage = "address must like 12-Streetname-cityname-countryname")]

@@ -4,6 +4,7 @@ using Syncfusion.DocIO;
 using Syncfusion.DocIO.DLS;
 using System.IO;
 using System.Drawing;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication5.Areas.De.Controllers
 {
@@ -61,7 +62,8 @@ namespace WebApplication5.Areas.De.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                        var cvname = Fileuploader.uploader("docs", employee.cv);
+            
+                    var cvname = Fileuploader.uploader("docs", employee.cv);
                         var imgname = Fileuploader.uploader("images", employee.img);
                     employee.cvname = cvname;
                     employee.imgname = imgname;

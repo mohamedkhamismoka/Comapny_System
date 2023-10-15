@@ -21,7 +21,7 @@ namespace WebApplication5.BL.Reposatory;
             }
             else
             {
-                var data = d.works.Include("Employee").Include("Project").Where(filter);
+                var data = d.works.AsSplitQuery().Include("Employee").Include("Project").Where(filter);
                 return data;
             }
         }
@@ -41,7 +41,7 @@ namespace WebApplication5.BL.Reposatory;
         //this method get all records from database 
         public IEnumerable<Works_For> get()
         {
-           var data= d.works.Select(a => a);
+           var data= d.works.Select(a => a).AsNoTracking();
             return data;
         }
 

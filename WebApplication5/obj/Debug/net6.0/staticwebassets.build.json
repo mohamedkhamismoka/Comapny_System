@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bLjuMNMX9J63Q1m2smN4XzTcZpLnBJA/Wk8PZqwGsWY=",
+  "Hash": "bOoPspwz4juEBB1C//C1qyK4QkI7Ubot+lfK7L11jEk=",
   "Source": "WebApplication5",
   "BasePath": "_content/WebApplication5",
   "Mode": "Default",
@@ -8330,6 +8330,23 @@
       "OriginalItemSpec": "wwwroot\\files\\docs\\139cc714-4c22-4ec0-84a4-0d2cb49bbbb6curriculum (4).pdf"
     },
     {
+      "Identity": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\wwwroot\\files\\docs\\32ba1f42-3710-4561-902a-1273fcecd719curriculum (4).pdf",
+      "SourceId": "WebApplication5",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\wwwroot\\",
+      "BasePath": "_content/WebApplication5",
+      "RelativePath": "files/docs/32ba1f42-3710-4561-902a-1273fcecd719curriculum (4).pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\files\\docs\\32ba1f42-3710-4561-902a-1273fcecd719curriculum (4).pdf"
+    },
+    {
       "Identity": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\wwwroot\\files\\docs\\37caed85-23cc-4eae-a1b2-572c63c492c1curriculum (4).pdf",
       "SourceId": "WebApplication5",
       "SourceType": "Discovered",
@@ -8566,6 +8583,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\files\\images\\02167e63-0dc4-4a59-ac9f-8caf1c23b010Capture1 - Copy.PNG"
+    },
+    {
+      "Identity": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\wwwroot\\files\\images\\095ae54d-2932-4f88-8ccb-423bd643f17eCapture4 - Copy.PNG",
+      "SourceId": "WebApplication5",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\wwwroot\\",
+      "BasePath": "_content/WebApplication5",
+      "RelativePath": "files/images/095ae54d-2932-4f88-8ccb-423bd643f17eCapture4 - Copy.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\files\\images\\095ae54d-2932-4f88-8ccb-423bd643f17eCapture4 - Copy.PNG"
     },
     {
       "Identity": "C:\\Users\\EL-Masria\\Documents\\GitHub\\Comapny_System\\WebApplication5\\wwwroot\\files\\images\\1fadada7-e632-4671-9dda-94cd017fec36download.png",

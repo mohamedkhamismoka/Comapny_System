@@ -11,6 +11,7 @@ namespace WebApplication5.DAL.Entity;
         public string address { get; set; }
         
         public int salary { get; set; }
+   
         public DateTime Hiredate { get; set; }
         public DateTime Creationdate { get; set; }
         public bool isActive { get; set; }
