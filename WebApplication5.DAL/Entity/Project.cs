@@ -4,7 +4,6 @@ namespace WebApplication5.DAL.Entity;
     public class Project {
 
     
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id{ get; set; }
        
         public string name{ get; set; }

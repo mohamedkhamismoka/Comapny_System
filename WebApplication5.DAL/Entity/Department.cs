@@ -5,7 +5,6 @@ namespace WebApplication5.DAL.Entity;
 
    public class Department
     {
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
         public String name { get; set; }
         public virtual IEnumerable<Employee> employees { get; set; }
