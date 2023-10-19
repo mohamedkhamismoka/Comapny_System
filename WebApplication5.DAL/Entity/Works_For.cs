@@ -11,11 +11,11 @@ namespace WebApplication5.DAL.Entity;
 
     public int ProjectId { get; set; }
     [ForeignKey("ProjectId")]
-    public virtual Project Project { get; set; }
+    public  Project Project { get; set; }
 
     public int EmployeeId { get; set; }
     [ForeignKey("EmployeeId")]
-    public virtual Employee Employee { get; set; }
+    public  Employee Employee { get; set; }
 
       
         

@@ -7,43 +7,43 @@ namespace WebApplication5.BL.Reposatory;
 
     public class DepartmentRepo : IDepartment
     {
-       readonly private DataContext d;
+       readonly private DataContext db;
         
-        public DepartmentRepo(DataContext d)
+        public DepartmentRepo(DataContext db)
         {
-            this.d = d;
+            this.db = db;
          
         }
         //this method to add department to database
         public void create(Department dep)
         {
-            d.departments.Add(dep);
-            d.SaveChanges();
+            db.departments.Add(dep);
+            db.SaveChanges();
         }
         //this method to delete department from database
         public void delete(Department dep)
         {
-            d.departments.Remove(dep);
-            d.SaveChanges();
+            db.departments.Remove(dep);
+            db.SaveChanges();
         }
         //this method to get all departments from  database
         public IEnumerable<Department> get()
         {
-            var data = d.departments.Select(a => a);
+            var data = db.departments.Select(a => a);
             return data;
 
         }
         //this method to get department from database based on id
         public Department getbyid(int id)
         {
-            var data = d.departments.Find(id);
+            var data = db.departments.Find(id);
             return data;
         }
         //this method to update department in database 
         public void update(Department dep)
         {
-            d.Entry(dep).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            d.SaveChanges();
+            db.Entry(dep).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
         }
     }
 

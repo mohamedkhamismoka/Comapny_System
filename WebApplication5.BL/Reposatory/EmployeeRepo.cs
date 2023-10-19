@@ -4,54 +4,54 @@ namespace WebApplication5.BL.Reposatory;
 
    public class EmployeeRepo:IEmployee
     {
-        private readonly DataContext d;
-        public EmployeeRepo(DataContext d)
+        private readonly DataContext db;
+        public EmployeeRepo(DataContext db)
         {
-            this.d = d;
+            this.db = db;
         }
         //this method to add employee to database
         public void create(Employee emp)
         {
-            d.employees.Add(emp);
-            d.SaveChanges();
+            db.employees.Add(emp);
+            db.SaveChanges();
         }
         //this method to delete employee from database
         public void delete(Employee emp)
         {
-            d.employees.Remove(emp);
-            d.SaveChanges();
+            db.employees.Remove(emp);
+            db.SaveChanges();
         }
         //this method to get all employees from database based on filter
         public IEnumerable<Employee> getbyfilter(Func<Employee, bool> filter=null)
         {
             if (filter == null)
             {
-                var data = d.employees.Include("Department").Select(a => a);
+                var data = db.employees.Include("Department").Select(a => a);
                 return data;
             }
             else{
-                var data = d.employees.Include("Department").Where(filter);
+                var data = db.employees.Include("Department").Where(filter);
                 return data;
             }
         }
         //this method to get  employee from database based on id
         public Employee getbyid(int id)
         {
-            var data = d.employees.Find(id);
+            var data = db.employees.Find(id);
             return data;
         }
         //this method to get all employess based on filter
         public IEnumerable<Employee> search(Func<Employee, bool> filter )
         {
-            var data = d.employees.Include("Department").Where(filter);
+            var data = db.employees.Include("Department").Where(filter);
             return data;
         }
         //this method to update employee
         //emp contain new values
         public void update(Employee emp)
         {
-            d.Entry(emp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            d.SaveChanges();
+            db.Entry(emp).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
         }
     }
 

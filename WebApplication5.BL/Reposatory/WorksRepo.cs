@@ -5,10 +5,10 @@ namespace WebApplication5.BL.Reposatory;
 
     public class WorksRepo : IWorks_For
     {
-        readonly private DataContext d;
-        public WorksRepo(DataContext d)
+        readonly private DataContext db;
+        public WorksRepo(DataContext db)
         {
-            this.d = d;
+            this.db = db;
 
         }
         //this method get all records from database based on filter from works entity
@@ -16,44 +16,44 @@ namespace WebApplication5.BL.Reposatory;
         {
             if (filter == null)
             {
-                var data = d.works.Select(a => a);
+                var data = db.works.Select(a => a);
                 return data;
             }
             else
             {
-                var data = d.works.AsSplitQuery().Include("Employee").Include("Project").Where(filter);
+                var data = db.works.AsSplitQuery().Include("Employee").Include("Project").Where(filter);
                 return data;
             }
         }
         //this method add record to works entity in database
         public void create(Works_For work)
         {
-            d.works.Add(work);
-            d.SaveChanges();
+           db.works.Add(work);
+           db.SaveChanges();
         }
 
         //this method delete record from works entity in database
         public void delete(Works_For work)
         {
-            d.works.Remove(work);
-            d.SaveChanges();
+            db.works.Remove(work);
+            db.SaveChanges();
         }
         //this method get all records from database 
         public IEnumerable<Works_For> get()
         {
-           var data= d.works.Select(a => a).AsNoTracking();
+           var data= db.works.Select(a => a).AsNoTracking();
             return data;
         }
 
     public void deleteEmployee(int id)
-    { var data = d.works.Where(a => a.EmployeeId == id);
-        d.works.RemoveRange(data);
+    { var data = db.works.Where(a => a.EmployeeId == id);
+        db.works.RemoveRange(data);
     }
 
     public void deleteProject(int id)
     {
-        var data = d.works.Where(a => a.ProjectId == id);
-        d.works.RemoveRange(data);
+        var data = db.works.Where(a => a.ProjectId == id);
+        db.works.RemoveRange(data);
     }
 }
 
